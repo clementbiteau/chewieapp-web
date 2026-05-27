@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mentions Légales — Chewie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"/>
+  <style>
+  :root {
+    --cream:       #FDFAF4;
+    --cream-warm:  #F7F2E8;
+    --ink:         #2A1F14;
+    --ink-mid:     #5C4A36;
+    --ink-soft:    #9C8A78;
+    --blue:        #6495ED;
+    --blue-soft:   #EBF1FE;
+    --border:      rgba(90,70,50,0.12);
+    --shadow-warm: rgba(80,55,30,0.08);
+    --serif:       'Cormorant Garamond', Georgia, serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--serif);
+    background: var(--cream);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253,250,244,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-size: 22px; font-weight: 700; font-style: italic; }
+  .nav-logo img { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+  .nav-back { font-size: 14px; color: var(--ink-soft); text-decoration: none; font-style: italic; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+  .nav-back:hover { color: var(--blue); }
+  .nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  @media(max-width:600px){ nav { padding: 14px 20px; } }
+
+  .page-wrap { max-width: 760px; margin: 0 auto; padding: 80px 24px 120px; }
+
+  .legal-header { margin-bottom: 64px; }
+  .legal-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+  .legal-header h1 { font-size: clamp(40px, 6vw, 68px); font-weight: 700; line-height: 1.0; letter-spacing: -1px; margin-bottom: 20px; }
+  .legal-header h1 em { font-style: italic; font-weight: 400; color: var(--blue); }
+  .legal-meta { font-size: 15px; color: var(--ink-soft); font-style: italic; padding-top: 20px; border-top: 1px solid var(--border); }
+
+  .article { margin-bottom: 52px; scroll-margin-top: 100px; }
+  .article-header { display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 24px; }
+  .article-num { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
+  h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 700; line-height: 1.15; }
+  p { font-size: 17px; color: var(--ink-mid); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  ul { font-size: 17px; color: var(--ink-mid); padding-left: 22px; margin-bottom: 14px; line-height: 1.7; }
+  li { margin-bottom: 6px; }
+  strong { font-weight: 700; color: var(--ink); }
+  a { color: var(--blue); }
+
+  .info-block {
+    background: var(--cream-warm); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 28px; margin-bottom: 14px;
+  }
+  .info-block p { margin-bottom: 6px; font-size: 16px; }
+
+  .highlight {
+    background: var(--blue-soft); border: 1px solid rgba(100,149,237,0.2);
+    border-radius: 12px; padding: 18px 22px; margin: 20px 0;
+    font-size: 16px; color: var(--ink-mid); font-style: italic;
+  }
+
+  .legal-footer {
+    margin-top: 80px; padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .legal-footer p { font-size: 14px; color: var(--ink-soft); font-style: italic; margin: 0; }
+  .legal-footer a { color: var(--blue); text-decoration: none; }
+  .legal-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../logo1.png" alt="Chewie"/>
+    Chewie
+  </a>
+  <a href="../index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Retour
+  </a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="legal-header">
+    <p class="legal-eyebrow">Documents légaux</p>
+    <h1>Mentions<br><em>Légales</em></h1>
+    <p class="legal-meta">Version 1.0 &nbsp;·&nbsp; En vigueur depuis le 1er mai 2026 &nbsp;·&nbsp; Chewie SAS</p>
+  </div>
+
+  <div class="highlight">
+    Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la Confiance en l'Économie Numérique (LCEN), nous informons les utilisateurs de l'application Chewie et du site web chewieapp.fr de l'identité des différents intervenants.
+  </div>
+
+  <!-- Art 1 -->
+  <div class="article" id="art1">
+    <div class="article-header">
+      <span class="article-num">Art. 01</span>
+      <h2>Éditeur</h2>
+    </div>
+    <div class="info-block">
+      <p><strong>Raison sociale :</strong> Chewie SAS</p>
+      <p><strong>Forme juridique :</strong> Société par Actions Simplifiée (SAS)</p>
+      <p><strong>Capital social :</strong> [X] €</p>
+      <p><strong>RCS :</strong> Paris [XXX XXX XXX]</p>
+      <p><strong>SIRET :</strong> [XXX XXX XXX XXXXX]</p>
+      <p><strong>Siège social :</strong> Paris (75000), France</p>
+      <p><strong>Directeur de la publication :</strong> Clément Biteau</p>
+      <p><strong>Contact :</strong> <a href="mailto:contact@chewieapp.fr">contact@chewieapp.fr</a></p>
+    </div>
+    <p>Si Chewie SAS n'est pas encore immatriculée au moment de votre lecture, l'éditeur est :<br/>
+    <strong>Clément Biteau</strong>, agissant en qualité de personne physique, domicilié à Paris, France.<br/>
+    Contact : <a href="mailto:contact@chewieapp.fr">contact@chewieapp.fr</a></p>
+  </div>
+
+  <!-- Art 2 -->
+  <div class="article" id="art2">
+    <div class="article-header">
+      <span class="article-num">Art. 02</span>
+      <h2>Hébergement</h2>
+    </div>
+    <p>L'application Chewie et ses données sont hébergées par :</p>
+    <div class="info-block">
+      <p><strong>Supabase Inc.</strong></p>
+      <p>970 Toa Payoh North, #07-04, Singapour 318992</p>
+      <p>Infrastructure : Amazon Web Services (AWS), région EU-West-1 (Irlande)</p>
+      <p>Site web : <a href="https://supabase.com" target="_blank">supabase.com</a></p>
+    </div>
+    <p>Le site web chewieapp.fr est hébergé par :</p>
+    <div class="info-block">
+      <p><strong>[Nom de votre hébergeur web — ex. Vercel Inc., Netlify, OVH…]</strong></p>
+      <p>[Adresse de l'hébergeur]</p>
+    </div>
+  </div>
+
+  <!-- Art 3 -->
+  <div class="article" id="art3">
+    <div class="article-header">
+      <span class="article-num">Art. 03</span>
+      <h2>Propriété intellectuelle</h2>
+    </div>
+    <p>L'ensemble des éléments constituant le site web chewieapp.fr et l'application Chewie — notamment les textes, photographies, vidéos, illustrations, logos, marques, icônes et logiciels — sont la propriété exclusive de Chewie SAS ou font l'objet d'une autorisation d'utilisation.</p>
+    <p>Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord préalable et écrit de Chewie SAS.</p>
+    <p>Le nom <strong>Chewie</strong> et le logo associé sont des marques déposées (ou en cours de dépôt) de Chewie SAS.</p>
+  </div>
+
+  <!-- Art 4 -->
+  <div class="article" id="art4">
+    <div class="article-header">
+      <span class="article-num">Art. 04</span>
+      <h2>Données personnelles</h2>
+    </div>
+    <p>Chewie collecte et traite des données personnelles dans le cadre de l'utilisation de l'Application. Pour toute information sur la collecte, le traitement et la protection de vos données, veuillez consulter notre <a href="privacy.html">Politique de Confidentialité</a>.</p>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, contactez : <a href="mailto:contact@chewieapp.fr">contact@chewieapp.fr</a></p>
+    <p>Vous pouvez également introduire une réclamation auprès de la <strong>CNIL</strong> : <a href="https://www.cnil.fr" target="_blank">cnil.fr</a></p>
+  </div>
+
+  <!-- Art 5 -->
+  <div class="article" id="art5">
+    <div class="article-header">
+      <span class="article-num">Art. 05</span>
+      <h2>Cookies et traceurs</h2>
+    </div>
+    <p>L'application mobile Chewie n'utilise pas de cookies. Le site web chewieapp.fr peut utiliser des cookies techniques nécessaires à son bon fonctionnement.</p>
+    <p>Si des cookies de mesure d'audience ou de publicité sont déposés, le consentement de l'utilisateur est recueilli préalablement, conformément aux recommandations de la CNIL.</p>
+  </div>
+
+  <!-- Art 6 -->
+  <div class="article" id="art6">
+    <div class="article-header">
+      <span class="article-num">Art. 06</span>
+      <h2>Responsabilité</h2>
+    </div>
+    <p>Chewie s'efforce d'assurer au mieux de ses possibilités l'exactitude et la mise à jour des informations diffusées sur l'Application et son site web. Cependant, Chewie ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition.</p>
+    <p>Chewie ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation de l'Application, ni de l'impossibilité d'y accéder.</p>
+    <p><strong>Chewie n'est pas un service de localisation GPS en temps réel.</strong> L'Application est un outil communautaire d'entraide et ne garantit pas la localisation ni la récupération d'un animal perdu.</p>
+  </div>
+
+  <!-- Art 7 -->
+  <div class="article" id="art7">
+    <div class="article-header">
+      <span class="article-num">Art. 07</span>
+      <h2>Droit applicable</h2>
+    </div>
+    <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+    <p>Pour toute question relative aux présentes mentions légales, contactez-nous à : <a href="mailto:contact@chewieapp.fr">contact@chewieapp.fr</a></p>
+  </div>
+
+  <div class="legal-footer">
+    <p>© 2026 Chewie SAS — Tous droits réservés</p>
+    <p>
+      <a href="terms.html">CGU</a> &nbsp;·&nbsp;
+      <a href="cgv.html">CGV</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Confidentialité</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

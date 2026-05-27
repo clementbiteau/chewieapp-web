@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conditions Générales de Vente — Chewie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"/>
+  <style>
+  :root {
+    --cream:       #FDFAF4;
+    --cream-warm:  #F7F2E8;
+    --ink:         #2A1F14;
+    --ink-mid:     #5C4A36;
+    --ink-soft:    #9C8A78;
+    --blue:        #6495ED;
+    --blue-soft:   #EBF1FE;
+    --border:      rgba(90,70,50,0.12);
+    --serif:       'Cormorant Garamond', Georgia, serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--serif); background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.7; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(253,250,244,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-size: 22px; font-weight: 700; font-style: italic; }
+  .nav-logo img { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+  .nav-back { font-size: 14px; color: var(--ink-soft); text-decoration: none; font-style: italic; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+  .nav-back:hover { color: var(--blue); }
+  .nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  @media(max-width:600px){ nav { padding: 14px 20px; } }
+  .page-wrap { max-width: 760px; margin: 0 auto; padding: 80px 24px 120px; }
+  .legal-header { margin-bottom: 64px; }
+  .legal-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+  .legal-header h1 { font-size: clamp(40px, 6vw, 68px); font-weight: 700; line-height: 1.0; letter-spacing: -1px; margin-bottom: 20px; }
+  .legal-header h1 em { font-style: italic; font-weight: 400; color: var(--blue); }
+  .legal-meta { font-size: 15px; color: var(--ink-soft); font-style: italic; padding-top: 20px; border-top: 1px solid var(--border); }
+  .toc { background: var(--cream-warm); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-bottom: 56px; }
+  .toc-title { font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; }
+  .toc ol { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 32px; }
+  @media(max-width:500px){ .toc ol { grid-template-columns: 1fr; } }
+  .toc a { font-size: 15px; color: var(--ink-mid); text-decoration: none; font-style: italic; transition: color 0.2s; display: flex; align-items: baseline; gap: 6px; }
+  .toc a:hover { color: var(--blue); }
+  .toc-num { font-size: 11px; font-weight: 700; color: var(--blue); min-width: 20px; font-style: normal; }
+  .article { margin-bottom: 52px; scroll-margin-top: 100px; }
+  .article-header { display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 24px; }
+  .article-num { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
+  h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 700; line-height: 1.15; }
+  h3 { font-size: 19px; font-weight: 600; margin: 24px 0 10px; }
+  p { font-size: 17px; color: var(--ink-mid); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  ul, ol { font-size: 17px; color: var(--ink-mid); padding-left: 22px; margin-bottom: 14px; line-height: 1.7; }
+  li { margin-bottom: 6px; }
+  strong { font-weight: 700; color: var(--ink); }
+  a { color: var(--blue); }
+  .highlight { background: var(--blue-soft); border: 1px solid rgba(100,149,237,0.2); border-radius: 12px; padding: 18px 22px; margin: 20px 0; font-size: 16px; color: var(--ink-mid); font-style: italic; }
+  .price-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px; }
+  .price-table th { text-align: left; padding: 10px 14px; background: var(--cream-warm); font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--border); }
+  .price-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--ink-mid); }
+  .price-table tr:last-child td { border-bottom: none; }
+  .legal-footer { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .legal-footer p { font-size: 14px; color: var(--ink-soft); font-style: italic; margin: 0; }
+  .legal-footer a { color: var(--blue); text-decoration: none; }
+  .legal-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../logo1.png" alt="Chewie"/>
+    Chewie
+  </a>
+  <a href="../index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Retour
+  </a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="legal-header">
+    <p class="legal-eyebrow">Documents légaux</p>
+    <h1>Conditions Générales<br><em>de Vente</em></h1>
+    <p class="legal-meta">Version 1.0 &nbsp;·&nbsp; En vigueur depuis le 1er mai 2026 &nbsp;·&nbsp; Chewie SAS</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Sommaire</div>
+    <ol>
+      <li><a href="#art1"><span class="toc-num">01</span>Vendeur</a></li>
+      <li><a href="#art2"><span class="toc-num">02</span>Produits</a></li>
+      <li><a href="#art3"><span class="toc-num">03</span>Prix</a></li>
+      <li><a href="#art4"><span class="toc-num">04</span>Commande</a></li>
+      <li><a href="#art5"><span class="toc-num">05</span>Paiement</a></li>
+      <li><a href="#art6"><span class="toc-num">06</span>Livraison</a></li>
+      <li><a href="#art7"><span class="toc-num">07</span>Rétractation</a></li>
+      <li><a href="#art8"><span class="toc-num">08</span>Garanties</a></li>
+      <li><a href="#art9"><span class="toc-num">09</span>Responsabilité</a></li>
+      <li><a href="#art10"><span class="toc-num">10</span>Droit applicable</a></li>
+    </ol>
+  </div>
+
+  <div class="highlight">
+    Les présentes Conditions Générales de Vente s'appliquent à toute commande de Smart Tag Chewie passée via l'application mobile Chewie ou le site web chewieapp.fr. En passant une commande, le Client déclare avoir lu et accepté les présentes CGV.
+  </div>
+
+  <!-- Art 1 -->
+  <div class="article" id="art1">
+    <div class="article-header">
+      <span class="article-num">Art. 01</span>
+      <h2>Vendeur</h2>
+    </div>
+    <p><strong>Chewie SAS</strong>, société par actions simplifiée au capital de [X] €, immatriculée au RCS de Paris sous le numéro [XXX XXX XXX], dont le siège social est situé à Paris (75000), France.</p>
+    <p>Contact : <a href="mailto:contact@chewieapp.fr">contact@chewieapp.fr</a></p>
+    <p>Numéro TVA intracommunautaire : FR [XX XXX XXX XXX]</p>
+  </div>
+
+  <!-- Art 2 -->
+  <div class="article" id="art2">
+    <div class="article-header">
+      <span class="article-num">Art. 02</span>
+      <h2>Produits</h2>
+    </div>
+    <p>Chewie commercialise les produits suivants :</p>
+    <h3>Smart Tag Chewie</h3>
+    <p>Médaillon physique en acier inoxydable doré, gravé d'un QR code unique lié au profil de l'animal de compagnie du Client dans l'application Chewie. Fabriqué par <strong>La Perlerie 22 Paris</strong>.</p>
+    <p>Le Smart Tag est disponible en trois tailles :</p>
+    <ul>
+      <li><strong>Small (S)</strong> — Ø 25 mm — convient aux chats, Yorkshires, Chihuahuas</li>
+      <li><strong>Medium (M)</strong> — Ø 32 mm — convient aux Beagles, Bulldogs, Épagneuls</li>
+      <li><strong>Large (L)</strong> — Ø 38 mm — convient aux Labradors, Bergers, Huskies</li>
+    </ul>
+    <p>Couleur disponible : <strong>Or (Gold)</strong> uniquement.</p>
+    <h3>Breloques (Charms)</h3>
+    <p>Accessoires décoratifs optionnels conçus pour s'accrocher à l'anneau du Smart Tag. La liste des breloques disponibles est indiquée dans l'application au moment de la commande.</p>
+    <p>Les photos et descriptions des produits sont fournies à titre indicatif. Chewie s'efforce de les maintenir exactes et à jour.</p>
+  </div>
+
+  <!-- Art 3 -->
+  <div class="article" id="art3">
+    <div class="article-header">
+      <span class="article-num">Art. 03</span>
+      <h2>Prix</h2>
+    </div>
+    <p>Tous les prix sont indiqués en euros, <strong>toutes taxes comprises (TTC)</strong>, TVA française applicable.</p>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Prix TTC</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Smart Tag — 1 tag (toutes tailles)</td>
+          <td><strong>19,90 €</strong></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Smart Tag — Pack 2 tags</td>
+          <td><strong>33,90 €</strong></td>
+          <td>Économie −15% · 1 breloque offerte</td>
+        </tr>
+        <tr>
+          <td>Smart Tag — Pack 3 tags</td>
+          <td><strong>49,90 €</strong></td>
+          <td>Économie −16% · 1 breloque offerte</td>
+        </tr>
+        <tr>
+          <td>Breloque (Charm)</td>
+          <td><strong>7,00 €</strong></td>
+          <td>Offerte à partir du pack 2 tags</td>
+        </tr>
+        <tr>
+          <td>Livraison France métropolitaine</td>
+          <td><strong>Gratuite</strong></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Chewie se réserve le droit de modifier ses prix à tout moment. Les produits seront facturés sur la base du tarif en vigueur au moment de la validation de la commande.</p>
+  </div>
+
+  <!-- Art 4 -->
+  <div class="article" id="art4">
+    <div class="article-header">
+      <span class="article-num">Art. 04</span>
+      <h2>Commande</h2>
+    </div>
+    <p>La commande est passée via l'application Chewie (section Smart Tag) ou le site web chewieapp.fr/shop. Le processus de commande comprend :</p>
+    <ol>
+      <li>Sélection du produit (taille, breloque optionnelle, quantité)</li>
+      <li>Récapitulatif de la commande et du prix TTC</li>
+      <li>Acceptation des présentes CGV</li>
+      <li>Paiement sécurisé</li>
+      <li>Confirmation par e-mail</li>
+    </ol>
+    <p>La commande n'est définitive qu'après réception de la confirmation de paiement. Chewie se réserve le droit de refuser toute commande anormale ou de mauvaise foi.</p>
+    <p>Le QR code gravé sur le Smart Tag est généré et associé au compte Chewie du Client au moment de la validation de la commande. <strong>Le Smart Tag est donc un article personnalisé à la commande.</strong></p>
+  </div>
+
+  <!-- Art 5 -->
+  <div class="article" id="art5">
+    <div class="article-header">
+      <span class="article-num">Art. 05</span>
+      <h2>Paiement</h2>
+    </div>
+    <p>Le paiement s'effectue en ligne, de façon sécurisée. Les moyens de paiement acceptés sont indiqués lors du passage de commande (carte bancaire Visa, Mastercard, etc.).</p>
+    <p>Les données bancaires du Client sont transmises directement au prestataire de paiement (Stripe Inc., certifié PCI-DSS niveau 1). Chewie ne stocke jamais les coordonnées bancaires du Client.</p>
+    <p>La commande est débitée au moment de la validation. En cas d'échec du paiement, la commande est automatiquement annulée.</p>
+  </div>
+
+  <!-- Art 6 -->
+  <div class="article" id="art6">
+    <div class="article-header">
+      <span class="article-num">Art. 06</span>
+      <h2>Livraison</h2>
+    </div>
+    <p>Les Smart Tags sont expédiés à l'adresse indiquée par le Client lors de la commande, en France métropolitaine uniquement (sauf indication contraire).</p>
+    <p><strong>Délai indicatif :</strong> 3 à 5 jours ouvrés à compter de la confirmation de commande.</p>
+    <p><strong>Frais de livraison :</strong> offerts pour toute commande en France métropolitaine.</p>
+    <p>En cas de retard de livraison imputable au transporteur, Chewie ne peut être tenu responsable mais s'engage à tout mettre en œuvre pour résoudre la situation dans les meilleurs délais.</p>
+    <p>Si le colis est retourné à l'expéditeur suite à une adresse incorrecte fournie par le Client, les frais de réexpédition seront à sa charge.</p>
+  </div>
+
+  <!-- Art 7 -->
+  <div class="article" id="art7">
+    <div class="article-header">
+      <span class="article-num">Art. 07</span>
+      <h2>Droit de rétractation</h2>
+    </div>
+    <div class="highlight">
+      <strong>Important :</strong> Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation ne s'applique pas aux biens confectionnés selon les spécifications du consommateur ou nettement personnalisés. Le Smart Tag Chewie étant gravé d'un QR code unique associé au compte du Client, il constitue un bien personnalisé. <strong>Le droit de rétractation de 14 jours ne s'applique donc pas une fois la fabrication engagée.</strong>
+    </div>
+    <p>Toutefois, si la commande n'a pas encore été transmise à la fabrication, le Client peut l'annuler en contactant <a href="mailto:contact@chewieapp.fr">contact@chewieapp.fr</a> dans les 24 heures suivant la validation.</p>
+    <p>Pour les breloques non personnalisées, le droit de rétractation de 14 jours s'applique conformément à l'article L.221-18 du Code de la consommation, à condition que le produit soit retourné dans son état d'origine.</p>
+  </div>
+
+  <!-- Art 8 -->
+  <div class="article" id="art8">
+    <div class="article-header">
+      <span class="article-num">Art. 08</span>
+      <h2>Garanties légales</h2>
+    </div>
+    <p>Tous les produits Chewie bénéficient des garanties légales suivantes :</p>
+    <ul>
+      <li><strong>Garantie légale de conformité</strong> (art. L.217-4 à L.217-14 du Code de la consommation) : 2 ans à compter de la livraison.</li>
+      <li><strong>Garantie contre les vices cachés</strong> (art. 1641 à 1649 du Code civil).</li>
+    </ul>
+    <p>En cas de défaut de conformité constaté dans les 24 mois suivant la livraison, le Client peut choisir entre la réparation ou le remplacement du produit. Si ces solutions s'avèrent impossibles ou disproportionnées, le Client peut obtenir un remboursement.</p>
+    <p>Pour exercer ces garanties, contactez : <a href="mailto:contact@chewieapp.fr">contact@chewieapp.fr</a> avec photos à l'appui.</p>
+  </div>
+
+  <!-- Art 9 -->
+  <div class="article" id="art9">
+    <div class="article-header">
+      <span class="article-num">Art. 09</span>
+      <h2>Responsabilité</h2>
+    </div>
+    <p>Le Smart Tag Chewie est un accessoire d'identification visuelle par QR code. <strong>Il ne constitue pas un dispositif de localisation GPS</strong> et ne permet pas de retrouver un animal en temps réel.</p>
+    <p>Chewie ne peut être tenu responsable de la perte, du vol ou de la disparition d'un animal de compagnie, même si celui-ci porte un Smart Tag activé.</p>
+    <p>La responsabilité de Chewie est limitée au montant de la commande du Client.</p>
+  </div>
+
+  <!-- Art 10 -->
+  <div class="article" id="art10">
+    <div class="article-header">
+      <span class="article-num">Art. 10</span>
+      <h2>Droit applicable et litiges</h2>
+    </div>
+    <p>Les présentes CGV sont soumises au droit français. En cas de litige, le Client peut recourir à une médiation de la consommation conformément aux dispositions du Code de la consommation.</p>
+    <p>Plateforme européenne de règlement des litiges en ligne : <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a></p>
+    <p>À défaut de résolution amiable, les tribunaux français seront seuls compétents, le tribunal de Paris étant désigné.</p>
+  </div>
+
+  <div class="legal-footer">
+    <p>© 2026 Chewie SAS — Tous droits réservés</p>
+    <p>
+      <a href="terms.html">CGU</a> &nbsp;·&nbsp;
+      <a href="mentions-legales.html">Mentions légales</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Confidentialité</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

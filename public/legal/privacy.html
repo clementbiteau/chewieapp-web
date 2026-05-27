@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Politique de Confidentialité — Chewie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"/>
+  <style>
+  :root {
+    --cream:       #FDFAF4;
+    --cream-warm:  #F7F2E8;
+    --ink:         #2A1F14;
+    --ink-mid:     #5C4A36;
+    --ink-soft:    #9C8A78;
+    --blue:        #6495ED;
+    --blue-soft:   #EBF1FE;
+    --success:     #2D9E6B;
+    --success-soft:#E8F7F0;
+    --border:      rgba(90,70,50,0.12);
+    --serif:       'Cormorant Garamond', Georgia, serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--serif);
+    background: var(--cream);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253,250,244,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--ink);
+    font-size: 22px; font-weight: 700; font-style: italic;
+  }
+  .nav-logo img { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+  .nav-back {
+    font-size: 14px; color: var(--ink-soft); text-decoration: none;
+    font-style: italic; transition: color 0.2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nav-back:hover { color: var(--blue); }
+  .nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  @media(max-width:600px){ nav { padding: 14px 20px; } }
+
+  .page-wrap { max-width: 760px; margin: 0 auto; padding: 80px 24px 120px; }
+
+  .legal-header { margin-bottom: 64px; }
+  .legal-eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 12px;
+  }
+  .legal-header h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 700; line-height: 1.0; letter-spacing: -1px; margin-bottom: 20px;
+  }
+  .legal-header h1 em { font-style: italic; font-weight: 400; color: var(--blue); }
+  .legal-meta {
+    font-size: 15px; color: var(--ink-soft); font-style: italic;
+    padding-top: 20px; border-top: 1px solid var(--border);
+  }
+
+  /* RGPD badge */
+  .rgpd-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--success-soft); border: 1px solid rgba(45,158,107,0.25);
+    border-radius: 12px; padding: 14px 20px; margin-bottom: 48px;
+  }
+  .rgpd-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
+  .rgpd-badge p { font-size: 15px; color: var(--ink-mid); font-style: italic; margin: 0; }
+  .rgpd-badge strong { color: var(--success); font-style: normal; }
+
+  .toc {
+    background: var(--cream-warm); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 32px; margin-bottom: 56px;
+  }
+  .toc-title { font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; }
+  .toc ol { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 32px; }
+  @media(max-width:500px){ .toc ol { grid-template-columns: 1fr; } }
+  .toc a {
+    font-size: 15px; color: var(--ink-mid); text-decoration: none;
+    font-style: italic; transition: color 0.2s;
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .toc a:hover { color: var(--blue); }
+  .toc-num { font-size: 11px; font-weight: 700; color: var(--blue); min-width: 20px; font-style: normal; }
+
+  .article { margin-bottom: 52px; scroll-margin-top: 100px; }
+  .article-header {
+    display: flex; align-items: baseline; gap: 16px;
+    border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 24px;
+  }
+  .article-num { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; }
+  h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 700; line-height: 1.15; }
+  h3 { font-size: 19px; font-weight: 600; margin: 24px 0 10px; }
+  p { font-size: 17px; color: var(--ink-mid); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  ul, ol { font-size: 17px; color: var(--ink-mid); padding-left: 22px; margin-bottom: 14px; line-height: 1.7; }
+  li { margin-bottom: 6px; }
+  strong { font-weight: 700; color: var(--ink); }
+
+  /* Data table */
+  .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 15px; }
+  .data-table th {
+    text-align: left; padding: 10px 14px;
+    background: var(--cream-warm); border: 1px solid var(--border);
+    font-weight: 700; color: var(--ink); font-size: 13px; letter-spacing: 0.3px;
+  }
+  .data-table td {
+    padding: 10px 14px; border: 1px solid var(--border);
+    color: var(--ink-mid); vertical-align: top;
+  }
+  .data-table tr:nth-child(even) td { background: rgba(247,242,232,0.4); }
+
+  /* Rights grid */
+  .rights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+  @media(max-width:500px){ .rights-grid { grid-template-columns: 1fr; } }
+  .right-card {
+    background: var(--cream-warm); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 18px;
+  }
+  .right-card-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .right-card-desc { font-size: 14px; color: var(--ink-soft); font-style: italic; line-height: 1.5; }
+
+  .highlight {
+    background: var(--blue-soft); border: 1px solid rgba(100,149,237,0.2);
+    border-radius: 12px; padding: 18px 22px; margin: 20px 0;
+    font-size: 16px; color: var(--ink-mid); font-style: italic;
+  }
+
+  .legal-footer {
+    margin-top: 80px; padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .legal-footer p { font-size: 14px; color: var(--ink-soft); font-style: italic; margin: 0; }
+  .legal-footer a { color: var(--blue); text-decoration: none; }
+  .legal-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../logo1.png" alt="Chewie"/>
+    Chewie
+  </a>
+  <a href="../index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Retour
+  </a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="legal-header">
+    <p class="legal-eyebrow">Documents légaux</p>
+    <h1>Politique de<br><em>Confidentialité</em></h1>
+    <p class="legal-meta">Version 1.0 &nbsp;·&nbsp; En vigueur depuis le 1er mai 2026 &nbsp;·&nbsp; Chewie SAS</p>
+  </div>
+
+  <div class="rgpd-badge">
+    <div class="rgpd-badge-dot"></div>
+    <p>Ce document est conforme au <strong>Règlement Général sur la Protection des Données (RGPD)</strong> — Règlement (UE) 2016/679.</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Sommaire</div>
+    <ol>
+      <li><a href="#p1"><span class="toc-num">01</span>Responsable du traitement</a></li>
+      <li><a href="#p2"><span class="toc-num">02</span>Données collectées</a></li>
+      <li><a href="#p3"><span class="toc-num">03</span>Finalités et bases légales</a></li>
+      <li><a href="#p4"><span class="toc-num">04</span>Partage des données</a></li>
+      <li><a href="#p5"><span class="toc-num">05</span>Durée de conservation</a></li>
+      <li><a href="#p6"><span class="toc-num">06</span>Vos droits</a></li>
+      <li><a href="#p7"><span class="toc-num">07</span>Sécurité</a></li>
+      <li><a href="#p8"><span class="toc-num">08</span>Cookies</a></li>
+      <li><a href="#p9"><span class="toc-num">09</span>Mineurs</a></li>
+      <li><a href="#p10"><span class="toc-num">10</span>Modifications</a></li>
+      <li><a href="#p11"><span class="toc-num">11</span>Contact</a></li>
+    </ol>
+  </div>
+
+  <!-- Art 1 -->
+  <div class="article" id="p1">
+    <div class="article-header">
+      <span class="article-num">Art. 01</span>
+      <h2>Responsable du traitement</h2>
+    </div>
+    <p>Le responsable du traitement de vos données personnelles est :</p>
+    <ul>
+      <li><strong>Société :</strong> Chewie SAS</li>
+      <li><strong>Siège social :</strong> Paris (75000), France</li>
+      <li><strong>RCS :</strong> Paris [XXX XXX XXX]</li>
+      <li><strong>Contact DPO :</strong> contact@chewieapp.fr</li>
+    </ul>
+    <p>Pour toute question relative à vos données personnelles, vous pouvez nous contacter à l'adresse e-mail ci-dessus ou via la section «&nbsp;Support&nbsp;» de l'Application.</p>
+  </div>
+
+  <!-- Art 2 -->
+  <div class="article" id="p2">
+    <div class="article-header">
+      <span class="article-num">Art. 02</span>
+      <h2>Données collectées</h2>
+    </div>
+    <p>Nous collectons uniquement les données nécessaires au fonctionnement du Service. Voici un aperçu des données traitées :</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Catégorie</th>
+          <th>Données</th>
+          <th>Caractère</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Compte</strong></td>
+          <td>Prénom, nom, adresse e-mail, mot de passe chiffré, photo de profil</td>
+          <td>Obligatoire</td>
+        </tr>
+        <tr>
+          <td><strong>Animal</strong></td>
+          <td>Nom, espèce, race, photos, description, numéro de puce (optionnel)</td>
+          <td>Obligatoire</td>
+        </tr>
+        <tr>
+          <td><strong>Localisation</strong></td>
+          <td>Position GPS approximative (rayon de quartier), zones d'alerte définies</td>
+          <td>Obligatoire pour les alertes</td>
+        </tr>
+        <tr>
+          <td><strong>Communication</strong></td>
+          <td>Numéro de téléphone (pour les contacts lors d'une alerte)</td>
+          <td>Optionnel, recommandé</td>
+        </tr>
+        <tr>
+          <td><strong>Alertes</strong></td>
+          <td>Signalements publiés, observations soumises, historique des alertes</td>
+          <td>Fonctionnel</td>
+        </tr>
+        <tr>
+          <td><strong>Smart Tag</strong></td>
+          <td>Identifiant du tag, date d'activation, logs de scan (date, heure, position approximative)</td>
+          <td>Lié à l'achat</td>
+        </tr>
+        <tr>
+          <td><strong>Paiement</strong></td>
+          <td>Données de facturation transmises à notre prestataire (Stripe). Chewie ne stocke pas les numéros de carte.</td>
+          <td>Abonnement Premium</td>
+        </tr>
+        <tr>
+          <td><strong>Technique</strong></td>
+          <td>Identifiant de l'appareil, version de l'OS, langue, logs d'erreurs anonymisés</td>
+          <td>Automatique</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight">
+      Chewie ne collecte pas de données de localisation en continu. La position GPS n'est transmise qu'au moment du déclenchement d'une alerte SOS ou lors d'un signalement d'observation, et uniquement avec votre accord explicite.
+    </div>
+  </div>
+
+  <!-- Art 3 -->
+  <div class="article" id="p3">
+    <div class="article-header">
+      <span class="article-num">Art. 03</span>
+      <h2>Finalités et bases légales</h2>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Finalité</th>
+          <th>Base légale (RGPD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Création et gestion de votre Compte</td>
+          <td>Exécution du contrat (art. 6.1.b)</td>
+        </tr>
+        <tr>
+          <td>Diffusion des alertes SOS à la communauté locale</td>
+          <td>Exécution du contrat (art. 6.1.b)</td>
+        </tr>
+        <tr>
+          <td>Affichage de la carte communautaire</td>
+          <td>Exécution du contrat (art. 6.1.b)</td>
+        </tr>
+        <tr>
+          <td>Fonctionnement des Smart Tags (scan QR)</td>
+          <td>Exécution du contrat (art. 6.1.b)</td>
+        </tr>
+        <tr>
+          <td>Gestion de l'abonnement Premium et facturation</td>
+          <td>Exécution du contrat (art. 6.1.b)</td>
+        </tr>
+        <tr>
+          <td>Envoi de notifications d'alertes proches de vous</td>
+          <td>Intérêt légitime (art. 6.1.f) — sécurité animale communautaire</td>
+        </tr>
+        <tr>
+          <td>Amélioration du Service et analyses d'usage</td>
+          <td>Intérêt légitime (art. 6.1.f) — données agrégées et anonymisées</td>
+        </tr>
+        <tr>
+          <td>Envoi de communications marketing</td>
+          <td>Consentement (art. 6.1.a) — désinscription possible à tout moment</td>
+        </tr>
+        <tr>
+          <td>Obligations légales et comptables</td>
+          <td>Obligation légale (art. 6.1.c)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Art 4 -->
+  <div class="article" id="p4">
+    <div class="article-header">
+      <span class="article-num">Art. 04</span>
+      <h2>Partage des données</h2>
+    </div>
+    <p>Chewie ne vend jamais vos données personnelles à des tiers. Vos données peuvent être partagées dans les cas suivants :</p>
+
+    <h3>Avec la communauté Chewie</h3>
+    <p>Lorsque vous déclenchez une alerte SOS, les informations suivantes sont visibles par les Utilisateurs proches de vous (dans la zone d'alerte définie) : photo de l'animal, nom, race, dernière position connue (approximative), et les informations de contact que vous avez choisi de rendre visibles.</p>
+    <p>Lorsque votre Smart Tag est scanné, la personne qui scanne voit les informations que vous avez configurées comme publiques dans votre profil (photo de l'animal, votre prénom et moyen de contact choisi).</p>
+
+    <h3>Avec nos sous-traitants</h3>
+    <p>Nous faisons appel à des prestataires techniques qui traitent des données pour notre compte, dans le cadre strict de nos instructions :</p>
+    <ul>
+      <li><strong>Hébergement :</strong> Amazon Web Services (AWS), région EU-West (Irlande)</li>
+      <li><strong>Paiement :</strong> Stripe Inc. — certifié PCI-DSS niveau 1</li>
+      <li><strong>Notifications push :</strong> Apple Push Notification Service / Firebase Cloud Messaging</li>
+      <li><strong>Cartographie :</strong> Mapbox Inc.</li>
+      <li><strong>Analyse d'erreurs :</strong> Sentry (données anonymisées)</li>
+    </ul>
+    <p>Tous nos sous-traitants sont soumis à des obligations contractuelles strictes en matière de protection des données, conformément à l'article 28 du RGPD.</p>
+
+    <h3>Transferts hors UE</h3>
+    <p>Certains de nos prestataires (Stripe, Apple, Google) sont établis aux États-Unis. Ces transferts sont encadrés par des clauses contractuelles types de la Commission européenne ou par le cadre EU-US Data Privacy Framework, garantissant un niveau de protection adéquat.</p>
+  </div>
+
+  <!-- Art 5 -->
+  <div class="article" id="p5">
+    <div class="article-header">
+      <span class="article-num">Art. 05</span>
+      <h2>Durée de conservation</h2>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Type de donnée</th>
+          <th>Durée de conservation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Données de Compte actif</td>
+          <td>Durée de vie du Compte</td>
+        </tr>
+        <tr>
+          <td>Données de Compte supprimé</td>
+          <td>30 jours après suppression (puis effacement définitif)</td>
+        </tr>
+        <tr>
+          <td>Historique des alertes SOS résolues</td>
+          <td>2 ans après résolution, puis anonymisation</td>
+        </tr>
+        <tr>
+          <td>Logs de scan Smart Tag</td>
+          <td>12 mois glissants</td>
+        </tr>
+        <tr>
+          <td>Données de facturation</td>
+          <td>10 ans (obligation légale comptable)</td>
+        </tr>
+        <tr>
+          <td>Logs techniques anonymisés</td>
+          <td>90 jours</td>
+        </tr>
+        <tr>
+          <td>Données marketing (consentement)</td>
+          <td>Jusqu'au retrait du consentement</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Art 6 -->
+  <div class="article" id="p6">
+    <div class="article-header">
+      <span class="article-num">Art. 06</span>
+      <h2>Vos droits</h2>
+    </div>
+    <p>Conformément au RGPD, vous disposez des droits suivants sur vos données personnelles :</p>
+
+    <div class="rights-grid">
+      <div class="right-card">
+        <div class="right-card-title">Droit d'accès</div>
+        <div class="right-card-desc">Obtenir une copie de l'ensemble des données vous concernant traitées par Chewie.</div>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Droit de rectification</div>
+        <div class="right-card-desc">Corriger des données inexactes ou incomplètes directement depuis votre profil ou en nous contactant.</div>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Droit à l'effacement</div>
+        <div class="right-card-desc">Demander la suppression de vos données, sous réserve des obligations légales de conservation.</div>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Droit à la portabilité</div>
+        <div class="right-card-desc">Recevoir vos données dans un format structuré et lisible par machine (JSON/CSV).</div>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Droit d'opposition</div>
+        <div class="right-card-desc">Vous opposer à un traitement fondé sur l'intérêt légitime, notamment pour le marketing.</div>
+      </div>
+      <div class="right-card">
+        <div class="right-card-title">Droit de limitation</div>
+        <div class="right-card-desc">Demander la suspension temporaire du traitement de vos données dans certains cas prévus par le RGPD.</div>
+      </div>
+    </div>
+
+    <p style="margin-top:20px;">Pour exercer ces droits, contactez-nous à : <strong>contact@chewieapp.fr</strong> ou via la section «&nbsp;Mes données&nbsp;» dans les paramètres de l'Application. Nous répondons à toute demande dans un délai maximum d'<strong>1 mois</strong>.</p>
+    <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) — <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.</p>
+  </div>
+
+  <!-- Art 7 -->
+  <div class="article" id="p7">
+    <div class="article-header">
+      <span class="article-num">Art. 07</span>
+      <h2>Sécurité des données</h2>
+    </div>
+    <p>Chewie met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte, destruction ou divulgation :</p>
+    <ul>
+      <li>Chiffrement des données en transit (TLS 1.3) et au repos (AES-256)</li>
+      <li>Authentification à deux facteurs disponible pour les Comptes</li>
+      <li>Mots de passe hachés avec bcrypt (non stockés en clair)</li>
+      <li>Accès aux données restreint au personnel habilité, selon le principe du moindre privilège</li>
+      <li>Audits de sécurité réguliers et tests de pénétration annuels</li>
+      <li>Plan de réponse aux incidents de sécurité conforme à l'article 33 du RGPD</li>
+    </ul>
+    <p>En cas de violation de données susceptible d'engendrer un risque élevé pour vos droits et libertés, nous vous en informerons dans les meilleurs délais conformément à nos obligations légales.</p>
+
+    <div class="highlight">
+      La position GPS exacte de votre domicile n'est jamais stockée ni transmise. Seule une zone géographique approximative (rayon de 500 m à 1 km) est utilisée pour les alertes de voisinage.
+    </div>
+  </div>
+
+  <!-- Art 8 -->
+  <div class="article" id="p8">
+    <div class="article-header">
+      <span class="article-num">Art. 08</span>
+      <h2>Cookies et traceurs</h2>
+    </div>
+    <p>Le site web de Chewie (chewieapp.fr) utilise des traceurs dans les catégories suivantes :</p>
+
+    <h3>Cookies strictement nécessaires</h3>
+    <p>Ces cookies sont indispensables au fonctionnement du site. Ils ne peuvent pas être désactivés. Ils comprennent : session d'authentification, préférences de langue, panier de commande Smart Tag.</p>
+
+    <h3>Cookies analytiques</h3>
+    <p>Avec votre consentement, nous utilisons des outils d'analyse d'audience anonymisés pour comprendre comment les visiteurs naviguent sur notre site et améliorer notre service. Ces données ne sont pas vendues à des tiers.</p>
+
+    <h3>Gestion de vos préférences</h3>
+    <p>Vous pouvez gérer vos préférences de cookies à tout moment via le bandeau de consentement présent sur le site, ou en configurant votre navigateur pour refuser ou supprimer les cookies.</p>
+    <p>L'Application mobile Chewie n'utilise pas de cookies. Des identifiants techniques anonymes sont utilisés pour le bon fonctionnement de l'Application.</p>
+  </div>
+
+  <!-- Art 9 -->
+  <div class="article" id="p9">
+    <div class="article-header">
+      <span class="article-num">Art. 09</span>
+      <h2>Mineurs</h2>
+    </div>
+    <p>Le Service Chewie est réservé aux personnes majeures (18 ans ou plus). Nous ne collectons pas sciemment de données personnelles concernant des mineurs.</p>
+    <p>Si vous avez connaissance qu'un mineur nous a fourni des données personnelles sans le consentement de son représentant légal, veuillez nous contacter immédiatement à <strong>contact@chewieapp.fr</strong> afin que nous puissions prendre les mesures appropriées.</p>
+  </div>
+
+  <!-- Art 10 -->
+  <div class="article" id="p10">
+    <div class="article-header">
+      <span class="article-num">Art. 10</span>
+      <h2>Modifications de la politique</h2>
+    </div>
+    <p>Chewie se réserve le droit de mettre à jour la présente Politique de Confidentialité à tout moment pour refléter les évolutions du Service, des pratiques de traitement ou des obligations légales.</p>
+    <p>Toute modification substantielle vous sera notifiée par e-mail et/ou via une notification dans l'Application, au minimum 15 jours avant son entrée en vigueur. La date de dernière mise à jour est indiquée en haut de ce document.</p>
+    <p>La poursuite de l'utilisation du Service après l'entrée en vigueur des modifications vaut acceptation de la nouvelle Politique de Confidentialité.</p>
+  </div>
+
+  <!-- Art 11 -->
+  <div class="article" id="p11">
+    <div class="article-header">
+      <span class="article-num">Art. 11</span>
+      <h2>Contact et réclamations</h2>
+    </div>
+    <p>Pour toute question, demande d'exercice de droits ou réclamation relative à vos données personnelles :</p>
+    <ul>
+      <li><strong>E-mail DPO :</strong> contact@chewieapp.fr</li>
+      <li><strong>Délai de réponse :</strong> 30 jours maximum</li>
+      <li><strong>Via l'Application :</strong> Paramètres → Confidentialité → Mes données</li>
+    </ul>
+    <p>Si vous n'obtenez pas de réponse satisfaisante, vous pouvez saisir la <strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong> :</p>
+    <ul>
+      <li>En ligne : <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">www.cnil.fr/fr/plaintes</a></li>
+      <li>Par courrier : CNIL — 3 Place de Fontenoy — TSA 80715 — 75334 Paris Cedex 07</li>
+    </ul>
+  </div>
+
+  <div class="legal-footer">
+    <p>Chewie SAS &nbsp;·&nbsp; Paris, France &nbsp;·&nbsp; Version 1.0 — 1er mai 2026</p>
+    <p><a href="terms.html">CGU</a> &nbsp;·&nbsp; <a href="../index.html">Retour au site</a></p>
+  </div>
+
+</div>
+</body>
+</html>

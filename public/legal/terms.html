@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conditions Générales d'Utilisation — Chewie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet"/>
+  <style>
+  :root {
+    --cream:       #FDFAF4;
+    --cream-warm:  #F7F2E8;
+    --ink:         #2A1F14;
+    --ink-mid:     #5C4A36;
+    --ink-soft:    #9C8A78;
+    --blue:        #6495ED;
+    --blue-soft:   #EBF1FE;
+    --border:      rgba(90,70,50,0.12);
+    --shadow-warm: rgba(80,55,30,0.08);
+    --serif:       'Cormorant Garamond', Georgia, serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--serif);
+    background: var(--cream);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253,250,244,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--ink);
+    font-size: 22px; font-weight: 700; font-style: italic;
+  }
+  .nav-logo img { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
+  .nav-back {
+    font-size: 14px; color: var(--ink-soft); text-decoration: none;
+    font-style: italic; transition: color 0.2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nav-back:hover { color: var(--blue); }
+  .nav-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  @media(max-width:600px){ nav { padding: 14px 20px; } }
+
+  /* Layout */
+  .page-wrap {
+    max-width: 760px; margin: 0 auto;
+    padding: 80px 24px 120px;
+  }
+
+  /* Header */
+  .legal-header { margin-bottom: 64px; }
+  .legal-eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 12px;
+  }
+  .legal-header h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 700; line-height: 1.0; letter-spacing: -1px; margin-bottom: 20px;
+  }
+  .legal-header h1 em { font-style: italic; font-weight: 400; color: var(--blue); }
+  .legal-meta {
+    font-size: 15px; color: var(--ink-soft); font-style: italic;
+    padding-top: 20px; border-top: 1px solid var(--border);
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--cream-warm); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 32px; margin-bottom: 56px;
+  }
+  .toc-title { font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; }
+  .toc ol { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 32px; }
+  @media(max-width:500px){ .toc ol { grid-template-columns: 1fr; } }
+  .toc a {
+    font-size: 15px; color: var(--ink-mid); text-decoration: none;
+    font-style: italic; transition: color 0.2s;
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .toc a:hover { color: var(--blue); }
+  .toc-num { font-size: 11px; font-weight: 700; color: var(--blue); min-width: 20px; font-style: normal; }
+
+  /* Articles */
+  .article { margin-bottom: 52px; scroll-margin-top: 100px; }
+  .article-header {
+    display: flex; align-items: baseline; gap: 16px;
+    border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 24px;
+  }
+  .article-num {
+    font-size: 13px; font-weight: 700; color: var(--blue);
+    letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0;
+  }
+  h2 {
+    font-size: clamp(22px, 3vw, 30px); font-weight: 700; line-height: 1.15;
+  }
+  h3 { font-size: 19px; font-weight: 600; margin: 24px 0 10px; }
+  p { font-size: 17px; color: var(--ink-mid); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  ul, ol {
+    font-size: 17px; color: var(--ink-mid);
+    padding-left: 22px; margin-bottom: 14px; line-height: 1.7;
+  }
+  li { margin-bottom: 6px; }
+  strong { font-weight: 700; color: var(--ink); }
+
+  /* Highlight box */
+  .highlight {
+    background: var(--blue-soft); border: 1px solid rgba(100,149,237,0.2);
+    border-radius: 12px; padding: 18px 22px; margin: 20px 0;
+    font-size: 16px; color: var(--ink-mid); font-style: italic;
+  }
+
+  /* Footer */
+  .legal-footer {
+    margin-top: 80px; padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .legal-footer p { font-size: 14px; color: var(--ink-soft); font-style: italic; margin: 0; }
+  .legal-footer a { color: var(--blue); text-decoration: none; }
+  .legal-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../logo1.png" alt="Chewie"/>
+    Chewie
+  </a>
+  <a href="../index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Retour
+  </a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="legal-header">
+    <p class="legal-eyebrow">Documents légaux</p>
+    <h1>Conditions Générales<br><em>d'Utilisation</em></h1>
+    <p class="legal-meta">Version 1.0 &nbsp;·&nbsp; En vigueur depuis le 1er mai 2026 &nbsp;·&nbsp; Chewie SAS</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Sommaire</div>
+    <ol>
+      <li><a href="#art1"><span class="toc-num">01</span>Définitions</a></li>
+      <li><a href="#art2"><span class="toc-num">02</span>Objet</a></li>
+      <li><a href="#art3"><span class="toc-num">03</span>Accès au service</a></li>
+      <li><a href="#art4"><span class="toc-num">04</span>Création de compte</a></li>
+      <li><a href="#art5"><span class="toc-num">05</span>Utilisation du service</a></li>
+      <li><a href="#art6"><span class="toc-num">06</span>Smart Tags</a></li>
+      <li><a href="#art7"><span class="toc-num">07</span>Abonnement Premium</a></li>
+      <li><a href="#art8"><span class="toc-num">08</span>Contenus et comportements</a></li>
+      <li><a href="#art9"><span class="toc-num">09</span>Responsabilité</a></li>
+      <li><a href="#art10"><span class="toc-num">10</span>Propriété intellectuelle</a></li>
+      <li><a href="#art11"><span class="toc-num">11</span>Données personnelles</a></li>
+      <li><a href="#art12"><span class="toc-num">12</span>Résiliation</a></li>
+      <li><a href="#art13"><span class="toc-num">13</span>Droit applicable</a></li>
+    </ol>
+  </div>
+
+  <div class="highlight">
+    En utilisant l'application Chewie ou en commandant un Smart Tag, vous acceptez les présentes Conditions Générales d'Utilisation. Veuillez les lire attentivement.
+  </div>
+
+  <!-- Art 1 -->
+  <div class="article" id="art1">
+    <div class="article-header">
+      <span class="article-num">Art. 01</span>
+      <h2>Définitions</h2>
+    </div>
+    <p>Dans les présentes CGU, les termes suivants ont la signification qui leur est attribuée ci-après :</p>
+    <ul>
+      <li><strong>«&nbsp;Chewie&nbsp;»</strong> désigne la société Chewie SAS, société par actions simplifiée au capital de [X] euros, immatriculée au RCS de Paris sous le numéro [XXX XXX XXX], dont le siège social est situé à Paris (75000), France.</li>
+      <li><strong>«&nbsp;Application&nbsp;»</strong> désigne l'application mobile Chewie, disponible sur iOS et Android, permettant de retrouver les animaux de compagnie perdus.</li>
+      <li><strong>«&nbsp;Service&nbsp;»</strong> désigne l'ensemble des fonctionnalités proposées par l'Application, incluant les alertes SOS, la carte communautaire, les profils d'animaux et les Smart Tags.</li>
+      <li><strong>«&nbsp;Utilisateur&nbsp;»</strong> désigne toute personne physique majeure qui accède au Service et y crée un compte.</li>
+      <li><strong>«&nbsp;Smart Tag&nbsp;»</strong> désigne le médaillon physique à QR code commercialisé par Chewie, destiné à être porté par l'animal de compagnie.</li>
+      <li><strong>«&nbsp;Compte&nbsp;»</strong> désigne l'espace personnel créé par l'Utilisateur sur l'Application.</li>
+      <li><strong>«&nbsp;Contenu&nbsp;»</strong> désigne toute information, photo, texte ou donnée publiée par l'Utilisateur sur le Service.</li>
+    </ul>
+  </div>
+
+  <!-- Art 2 -->
+  <div class="article" id="art2">
+    <div class="article-header">
+      <span class="article-num">Art. 02</span>
+      <h2>Objet</h2>
+    </div>
+    <p>Les présentes Conditions Générales d'Utilisation ont pour objet de définir les conditions dans lesquelles Chewie met à la disposition des Utilisateurs son Service de localisation et de retrouvailles d'animaux de compagnie perdus.</p>
+    <p>Chewie est une plateforme communautaire qui met en relation les propriétaires d'animaux perdus avec leurs voisins et la communauté locale, via une application mobile et des Smart Tags à QR code.</p>
+    <p>L'acceptation des présentes CGU est matérialisée par la création d'un Compte sur l'Application. Toute utilisation du Service implique l'acceptation pleine et entière des présentes conditions.</p>
+  </div>
+
+  <!-- Art 3 -->
+  <div class="article" id="art3">
+    <div class="article-header">
+      <span class="article-num">Art. 03</span>
+      <h2>Accès au service</h2>
+    </div>
+    <p>Le Service est accessible depuis tout appareil mobile compatible disposant d'une connexion Internet. L'Application est disponible sur l'App Store (iOS 15 minimum) et sur Google Play (Android 8.0 minimum).</p>
+    <p>L'accès au Service est réservé aux personnes physiques majeures (18 ans ou plus). En créant un Compte, l'Utilisateur déclare et garantit avoir la capacité juridique d'accepter les présentes CGU.</p>
+    <p>Chewie se réserve le droit de modifier, suspendre ou interrompre tout ou partie du Service à tout moment, notamment pour des raisons de maintenance ou d'évolution technique, sans que cela puisse ouvrir droit à une quelconque indemnité.</p>
+    <h3>Disponibilité géographique</h3>
+    <p>Le Service est initialement déployé sur la région Île-de-France et progressivement étendu à d'autres territoires. Chewie ne garantit pas une couverture ou une efficacité identique sur l'ensemble du territoire.</p>
+  </div>
+
+  <!-- Art 4 -->
+  <div class="article" id="art4">
+    <div class="article-header">
+      <span class="article-num">Art. 04</span>
+      <h2>Création de compte</h2>
+    </div>
+    <p>L'utilisation du Service nécessite la création d'un Compte. L'Utilisateur s'engage à fournir des informations exactes, complètes et à jour lors de son inscription, notamment :</p>
+    <ul>
+      <li>Nom et prénom</li>
+      <li>Adresse e-mail valide</li>
+      <li>Numéro de téléphone (optionnel, recommandé)</li>
+      <li>Zone géographique approximative</li>
+    </ul>
+    <p>L'Utilisateur est seul responsable de la confidentialité de ses identifiants de connexion et s'engage à ne pas les communiquer à des tiers. Toute utilisation du Service via son Compte est réputée effectuée par l'Utilisateur.</p>
+    <p>En cas d'utilisation non autorisée de son Compte, l'Utilisateur doit en informer Chewie dans les meilleurs délais à l'adresse <strong>contact@chewieapp.fr</strong>.</p>
+    <p>Un Utilisateur ne peut créer qu'un seul Compte. Chewie se réserve le droit de supprimer tout compte en doublon.</p>
+  </div>
+
+  <!-- Art 5 -->
+  <div class="article" id="art5">
+    <div class="article-header">
+      <span class="article-num">Art. 05</span>
+      <h2>Utilisation du service</h2>
+    </div>
+    <h3>Fonctionnalités gratuites</h3>
+    <p>Dans sa version gratuite, le Service permet notamment de :</p>
+    <ul>
+      <li>Créer le profil d'un animal de compagnie</li>
+      <li>Déclencher une alerte SOS en cas de disparition</li>
+      <li>Consulter la carte communautaire et les alertes actives</li>
+      <li>Participer aux recherches d'animaux perdus dans son quartier</li>
+      <li>Générer une carte d'identité PDF de l'animal</li>
+      <li>Activer et gérer un Smart Tag (si commandé séparément)</li>
+    </ul>
+    <h3>Engagements de l'Utilisateur</h3>
+    <p>L'Utilisateur s'engage à utiliser le Service de manière loyale, conformément à sa destination, et à ne pas :</p>
+    <ul>
+      <li>Publier de fausses alertes ou informations erronées concernant des animaux perdus</li>
+      <li>Utiliser le Service à des fins commerciales non autorisées</li>
+      <li>Collecter les données personnelles d'autres Utilisateurs</li>
+      <li>Tenter de perturber ou contourner les systèmes de sécurité de l'Application</li>
+      <li>Adopter un comportement irrespectueux ou harcelant envers d'autres membres de la communauté</li>
+    </ul>
+  </div>
+
+  <!-- Art 6 -->
+  <div class="article" id="art6">
+    <div class="article-header">
+      <span class="article-num">Art. 06</span>
+      <h2>Smart Tags</h2>
+    </div>
+    <p>Les Smart Tags sont des produits physiques vendus séparément via la boutique de l'Application ou le site web de Chewie. Leur achat est soumis aux conditions suivantes :</p>
+    <h3>Commande et livraison</h3>
+    <p>Toute commande de Smart Tag donne lieu à un contrat de vente distinct. Les délais de livraison indicatifs sont de 5 à 10 jours ouvrés sur le territoire français. Les frais de livraison sont indiqués au moment de la commande (4,90€ en France métropolitaine).</p>
+    <h3>Garantie et retours</h3>
+    <p>Les Smart Tags bénéficient d'une garantie légale de conformité de 2 ans conformément aux articles L.217-4 et suivants du Code de la consommation. En cas de défaut de conformité, l'Utilisateur peut exercer son droit de rétractation dans un délai de 14 jours suivant la réception du produit.</p>
+    <h3>Activation et fonctionnement</h3>
+    <p>Le QR code gravé sur le Smart Tag est unique et lié au Compte de l'Utilisateur. En scannant ce code, toute personne (avec ou sans l'Application Chewie) peut accéder aux informations de contact choisies par l'Utilisateur. L'Utilisateur contrôle les informations visibles via son profil dans l'Application.</p>
+    <div class="highlight">
+      L'achat d'un Smart Tag inclut 1 an d'abonnement Chewie Premium offert, activé automatiquement à la date de livraison estimée.
+    </div>
+  </div>
+
+  <!-- Art 7 -->
+  <div class="article" id="art7">
+    <div class="article-header">
+      <span class="article-num">Art. 07</span>
+      <h2>Abonnement Premium</h2>
+    </div>
+    <p>Chewie propose un abonnement payant «&nbsp;Premium&nbsp;» donnant accès à des fonctionnalités supplémentaires :</p>
+    <ul>
+      <li>Nombre d'animaux illimité (3 maximum en version gratuite)</li>
+      <li>Rayon d'alerte SOS étendu jusqu'à 10 km</li>
+      <li>Enregistrement d'un contact vétérinaire d'urgence</li>
+      <li>Statistiques avancées et historique complet des alertes</li>
+      <li>Support prioritaire</li>
+    </ul>
+    <h3>Tarifs</h3>
+    <p>L'abonnement Premium est proposé aux tarifs suivants (TTC) :</p>
+    <ul>
+      <li><strong>Mensuel :</strong> 3,99€ / mois, renouvelable automatiquement</li>
+      <li><strong>Annuel :</strong> 29,00€ / an (soit 2,42€ / mois), renouvelable automatiquement</li>
+    </ul>
+    <h3>Résiliation de l'abonnement</h3>
+    <p>L'Utilisateur peut résilier son abonnement à tout moment depuis les paramètres de l'Application ou de la boutique d'applications (App Store / Google Play). La résiliation prend effet à l'issue de la période en cours, sans remboursement au prorata.</p>
+    <p>Chewie se réserve le droit de modifier les tarifs avec un préavis de 30 jours communiqué par e-mail. Si l'Utilisateur refuse la nouvelle tarification, il peut résilier son abonnement sans frais avant la date d'entrée en vigueur.</p>
+  </div>
+
+  <!-- Art 8 -->
+  <div class="article" id="art8">
+    <div class="article-header">
+      <span class="article-num">Art. 08</span>
+      <h2>Contenus et comportements</h2>
+    </div>
+    <p>L'Utilisateur est seul responsable des Contenus qu'il publie sur le Service. En publiant un Contenu, l'Utilisateur garantit qu'il dispose de tous les droits nécessaires et qu'il ne contrevient à aucun droit de tiers.</p>
+    <p>Il est expressément interdit de publier des Contenus :</p>
+    <ul>
+      <li>Contraires aux bonnes mœurs, à l'ordre public ou aux lois en vigueur</li>
+      <li>Diffamatoires, injurieux ou portant atteinte à la vie privée</li>
+      <li>Comportant des données personnelles de tiers sans leur consentement</li>
+      <li>Constituant de la désinformation ou des fausses alertes</li>
+      <li>À caractère publicitaire ou promotionnel non autorisé</li>
+    </ul>
+    <p>Chewie se réserve le droit de supprimer tout Contenu non conforme et de suspendre ou supprimer le Compte de l'Utilisateur responsable, sans préavis ni indemnité.</p>
+  </div>
+
+  <!-- Art 9 -->
+  <div class="article" id="art9">
+    <div class="article-header">
+      <span class="article-num">Art. 09</span>
+      <h2>Responsabilité</h2>
+    </div>
+    <h3>Responsabilité de Chewie</h3>
+    <p>Chewie met en œuvre tous les moyens raisonnables pour assurer la disponibilité et le bon fonctionnement du Service, sans toutefois s'engager sur une obligation de résultat. Chewie ne peut être tenu responsable :</p>
+    <ul>
+      <li>Des interruptions du Service dues à des maintenances, à des pannes ou à des cas de force majeure</li>
+      <li>Des résultats des recherches d'animaux (Chewie est un outil d'aide, non une garantie de résultat)</li>
+      <li>Des comportements des Utilisateurs entre eux</li>
+      <li>Des dommages indirects liés à l'utilisation ou à l'impossibilité d'utiliser le Service</li>
+    </ul>
+    <h3>Responsabilité de l'Utilisateur</h3>
+    <p>L'Utilisateur est seul responsable de l'utilisation qu'il fait du Service, des Contenus qu'il publie et de ses interactions avec les autres membres de la communauté. L'Utilisateur s'engage à indemniser Chewie de toute réclamation, perte ou dommage résultant de son utilisation non conforme du Service.</p>
+    <div class="highlight">
+      Le Service Chewie est un outil communautaire d'aide à la recherche. Il ne remplace pas les démarches officielles (police, fourrière, SPA) qui doivent être entreprises en parallèle en cas de disparition.
+    </div>
+  </div>
+
+  <!-- Art 10 -->
+  <div class="article" id="art10">
+    <div class="article-header">
+      <span class="article-num">Art. 10</span>
+      <h2>Propriété intellectuelle</h2>
+    </div>
+    <p>L'ensemble des éléments constitutifs du Service (Application, marque «&nbsp;Chewie&nbsp;», logo, design, textes, algorithmes, code source) sont la propriété exclusive de Chewie SAS et sont protégés par le droit de la propriété intellectuelle.</p>
+    <p>Toute reproduction, représentation, modification ou exploitation non autorisée de ces éléments est strictement interdite et constitue une contrefaçon sanctionnée par le Code de la propriété intellectuelle.</p>
+    <p>En publiant un Contenu sur le Service, l'Utilisateur accorde à Chewie une licence mondiale, non exclusive, gratuite, pour reproduire, afficher et distribuer ce Contenu dans le cadre du fonctionnement du Service, pour la durée de la protection par le droit d'auteur.</p>
+  </div>
+
+  <!-- Art 11 -->
+  <div class="article" id="art11">
+    <div class="article-header">
+      <span class="article-num">Art. 11</span>
+      <h2>Données personnelles</h2>
+    </div>
+    <p>Chewie traite les données personnelles des Utilisateurs conformément à sa <a href="privacy.html">Politique de Confidentialité</a>, disponible sur l'Application et le site web, et au Règlement (UE) 2016/679 (RGPD).</p>
+    <p>L'Utilisateur dispose des droits d'accès, de rectification, d'effacement, de portabilité et d'opposition à l'égard de ses données personnelles, qu'il peut exercer en contactant Chewie à l'adresse : <strong>contact@chewieapp.fr</strong>.</p>
+  </div>
+
+  <!-- Art 12 -->
+  <div class="article" id="art12">
+    <div class="article-header">
+      <span class="article-num">Art. 12</span>
+      <h2>Résiliation</h2>
+    </div>
+    <h3>Par l'Utilisateur</h3>
+    <p>L'Utilisateur peut supprimer son Compte à tout moment depuis les paramètres de l'Application. La suppression du Compte entraîne la résiliation immédiate de l'accès au Service. Les données sont supprimées conformément à la Politique de Confidentialité.</p>
+    <h3>Par Chewie</h3>
+    <p>Chewie peut suspendre ou résilier le Compte d'un Utilisateur, sans préavis ni indemnité, en cas de violation des présentes CGU, notamment en cas de publication de fausses alertes, de comportement frauduleux ou de non-paiement de l'abonnement Premium.</p>
+    <h3>Modification des CGU</h3>
+    <p>Chewie se réserve le droit de modifier les présentes CGU à tout moment. Les modifications sont notifiées par e-mail et/ou notification in-app au minimum 15 jours avant leur entrée en vigueur. La poursuite de l'utilisation du Service après cette date vaut acceptation des nouvelles conditions.</p>
+  </div>
+
+  <!-- Art 13 -->
+  <div class="article" id="art13">
+    <div class="article-header">
+      <span class="article-num">Art. 13</span>
+      <h2>Droit applicable et litiges</h2>
+    </div>
+    <p>Les présentes CGU sont soumises au droit français. En cas de litige relatif à leur interprétation ou à leur exécution, les parties s'efforceront de trouver une solution amiable.</p>
+    <p>À défaut d'accord amiable dans un délai de 30 jours, tout litige sera soumis à la compétence exclusive des tribunaux compétents de Paris.</p>
+    <p>Conformément aux articles L.616-1 et R.616-1 du Code de la consommation, Chewie propose un dispositif de médiation de la consommation. L'Utilisateur peut recourir gratuitement au médiateur de la consommation désigné par Chewie en cas de litige non résolu.</p>
+    <p>Pour toute question relative aux présentes CGU : <strong>contact@chewieapp.fr</strong></p>
+  </div>
+
+  <div class="legal-footer">
+    <p>Chewie SAS &nbsp;·&nbsp; Paris, France &nbsp;·&nbsp; Version 1.0 — 1er mai 2026</p>
+    <p><a href="privacy.html">Politique de Confidentialité</a> &nbsp;·&nbsp; <a href="../index.html">Retour au site</a></p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "chewie-tag-redirect",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "next": "^15.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.6",
+    "@types/react": "19.2.15",
+    "typescript": "5.8.2"
+  }
+}
