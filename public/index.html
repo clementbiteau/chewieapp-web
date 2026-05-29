@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Chewie — Retrouvez votre animal perdu à Paris</title>
-<meta name="description" content="L'app parisienne pour retrouver les animaux perdus. Smart Tags QR, alertes de quartier, carte communautaire. Bientôt sur iOS & Android."/>
+<meta name="description" content="L'app parisienne pour retrouver les animaux perdus. Smart Tags QR, alertes de quartier, carte communautaire. Disponible sur iOS & Android."/>
 
 <!-- Favicons & icons -->
 <link rel="icon" type="image/png" href="favicon.png"/>
@@ -787,7 +787,7 @@ h2.serif em { font-style: italic; color: var(--gold); }
   border: 1px solid var(--border);
 }
 .charm-placeholder span { font-size: 10px; font-family: monospace; color: var(--ink-ghost); text-align: center; padding: 0 12px; line-height: 1.5; }
-.perlerie-tag {
+.shop-tag-badge {
   display: inline-block; margin-bottom: 16px;
   background: oklch(92% 0.03 290); border: 1px solid oklch(78% 0.06 290);
   color: oklch(50% 0.08 290); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px;
@@ -860,6 +860,22 @@ h2.serif em { font-style: italic; color: var(--gold); }
   width: 100%; aspect-ratio: 1 / 1;
   object-fit: cover; display: block;
   background: var(--cream-warm);
+  transition: transform 0.55s cubic-bezier(.2,.8,.2,1);
+}
+.charm-card:hover .charm-photo { transform: scale(1.07); }
+/* ── extra micro-animations (livelier feel) ── */
+.shop-tag-hero .tag-img-wrap img { animation: float 5s ease-in-out infinite; }
+.store-badge { transition: transform .18s ease, box-shadow .25s ease; }
+.store-badge:hover { transform: translateY(-3px); box-shadow: 0 14px 34px var(--shadow); }
+.nav-cta { transition: transform .15s ease, box-shadow .2s ease; }
+.nav-cta:hover { transform: translateY(-1px); }
+.hero-text > * { animation: fadeUp .8s ease both; }
+.hero-text > *:nth-child(2) { animation-delay: .08s; }
+.hero-text > *:nth-child(3) { animation-delay: .16s; }
+.hero-text > *:nth-child(4) { animation-delay: .24s; }
+.hero-text > *:nth-child(5) { animation-delay: .32s; }
+@media (prefers-reduced-motion: reduce) {
+  .shop-tag-hero .tag-img-wrap img, .hero-text > * { animation: none; }
 }
 .charm-tier {
   position: absolute; top: 16px; left: 16px;
@@ -870,6 +886,13 @@ h2.serif em { font-style: italic; color: var(--gold); }
 }
 .charm-tier.classic { background: oklch(20% 0.02 55 / 0.75); color: var(--cream); }
 .charm-tier.exclusive { background: var(--gold); color: #fff; }
+.collection-head {
+  max-width: 1080px; margin: 0 auto 22px; padding: 0 4px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.collection-head .charm-tier { position: static; font-size: 12px; padding: 7px 16px; }
+.collection-head-price { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--ink-soft); }
+.reveal-delay-3 { transition-delay: 0.24s; }
 .charm-body { padding: 24px 26px 0; flex: 1; display: flex; flex-direction: column; }
 .charm-name { font-family: var(--serif); font-size: 26px; font-style: italic; margin-bottom: 4px; line-height: 1.1; }
 .charm-tagline { font-size: 13px; color: var(--ink-soft); margin-bottom: 18px; line-height: 1.5; }
@@ -1078,9 +1101,9 @@ footer {
   </div>
   <div class="nav-right">
     <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
-    <a href="#waitlist" class="nav-cta">
-      <span data-fr>Pré-inscription</span>
-      <span data-en>Join Waitlist</span>
+    <a href="#" onclick="openOrderModal();return false;" class="nav-cta">
+      <span data-fr>Commander</span>
+      <span data-en>Order</span>
     </a>
   </div>
 </nav>
@@ -1093,8 +1116,8 @@ footer {
   <div class="hero-text" style="position:relative;z-index:1;">
     <div class="hero-badge">
       <span class="pulse-dot"></span>
-      <span data-fr>Lancement le 28 mai · Paris</span>
-      <span data-en>Launching May 28 · Paris</span>
+      <span data-fr>Disponible à Paris · iOS &amp; Android</span>
+      <span data-en>Live in Paris · iOS &amp; Android</span>
     </div>
     <h1>
       <span data-fr>Perdus ?<br><em>Retrouvés.</em></span>
@@ -1105,10 +1128,10 @@ footer {
       <span data-en>The app is <strong>free</strong>. The gold tag is the ultimate protection: indestructible, no battery, scannable by anyone — <strong>even without Chewie</strong>. Your pet always finds its way home.</span>
     </p>
     <div class="hero-ctas">
-      <a href="#waitlist" class="btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        <span data-fr>Je veux en être — pré-inscription</span>
-        <span data-en>Join the launch — sign up</span>
+      <a href="#" onclick="openOrderModal();return false;" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg>
+        <span data-fr>Télécharger l'app</span>
+        <span data-en>Get the app</span>
       </a>
       <a href="#shop" class="btn-secondary">
         <span data-fr>Commander une médaille</span>
@@ -1123,8 +1146,8 @@ footer {
         <div class="sp-av" style="background:var(--green);">C</div>
       </div>
       <div class="sp-text">
-        <p data-fr>+240 Parisiens déjà inscrits</p>
-        <p data-en>+240 Parisians already registered</p>
+        <p data-fr>+240 Parisiens nous font confiance</p>
+        <p data-en>+240 Parisians trust us</p>
         <span data-fr>Rejoignez la communauté</span>
         <span data-en>Join the community</span>
       </div>
@@ -1365,21 +1388,13 @@ footer {
   </div>
 </section>
 
-<!-- ═══ COUNTDOWN ══════════════════════════════════════════ -->
+<!-- ═══ LIVE BANNER ════════════════════════════════════════ -->
 <div class="countdown-bar reveal">
-  <div class="cd-eyebrow" data-fr>Lancement dans</div>
-  <div class="cd-eyebrow" data-en>Launching in</div>
-  <div class="cd-grid" id="countdown">
-    <div class="cd-unit"><div class="cd-num" id="cd-days">24</div><div class="cd-lbl" data-fr>Jours</div><div class="cd-lbl" data-en>Days</div></div>
-    <div class="cd-sep">·</div>
-    <div class="cd-unit"><div class="cd-num" id="cd-hours">00</div><div class="cd-lbl" data-fr>Heures</div><div class="cd-lbl" data-en>Hours</div></div>
-    <div class="cd-sep">·</div>
-    <div class="cd-unit"><div class="cd-num" id="cd-mins">00</div><div class="cd-lbl" data-fr>Minutes</div><div class="cd-lbl" data-en>Minutes</div></div>
-    <div class="cd-sep">·</div>
-    <div class="cd-unit"><div class="cd-num" id="cd-secs">00</div><div class="cd-lbl" data-fr>Secondes</div><div class="cd-lbl" data-en>Seconds</div></div>
+  <div class="cd-grid" style="display:flex;align-items:center;justify-content:center;gap:12px;">
+    <span class="pulse-dot"></span>
+    <span style="font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,30px);color:var(--gold);" data-fr>Chewie est live à Paris — sur iOS &amp; Android</span>
+    <span style="font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,30px);color:var(--gold);" data-en>Chewie is live in Paris — on iOS &amp; Android</span>
   </div>
-  <div class="cd-sub" data-fr>Déjà <strong>240+ Parisiens</strong> sur la liste d'attente</div>
-  <div class="cd-sub" data-en>Already <strong>240+ Parisians</strong> on the waitlist</div>
 </div>
 
 <!-- ═══ HOW IT WORKS ══════════════════════════════════════ -->
@@ -1711,10 +1726,10 @@ footer {
           <li data-en>Stainless steel, premium gold finish</li>
           <li data-fr>Scannable sans application</li>
           <li data-en>Scannable without any app</li>
-          <li data-fr>Livraison offerte à Paris</li>
-          <li data-en>Free delivery in Paris</li>
+          <li data-fr>Livraison 4,99 € en France</li>
+          <li data-en>€4.99 delivery in France</li>
         </ul>
-        <a href="#waitlist" class="btn-primary" style="justify-content:center;">
+        <a href="#" onclick="openOrderModal();return false;" class="btn-primary" style="justify-content:center;">
           <span data-fr>Commander — 19,99&nbsp;€</span>
           <span data-en>Order — €19.99</span>
         </a>
@@ -1733,52 +1748,35 @@ footer {
       <span data-en>Each collection includes a Chewie tag. Pick the charm that suits your pet.</span>
     </p>
 
+    <!-- ── Collection Exclusive (29,99 €) ── -->
+    <div class="collection-head reveal">
+      <span class="charm-tier exclusive">★ <span data-fr>Collection Exclusive</span><span data-en>Exclusive Collection</span></span>
+      <span class="collection-head-price">29,99&nbsp;€ · <span data-fr>Tag inclus</span><span data-en>Tag included</span></span>
+    </div>
     <div class="charms-grid">
-      <!-- Seashell Babby -->
-      <div class="charm-card classic reveal">
-        <span class="charm-tier classic" data-fr>Classique</span>
-        <span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charm-seashell-babby.jpg" alt="Seashell Babby charm" class="charm-photo"/>
-        <div class="charm-body">
-          <div class="charm-name">Seashell Babby</div>
-          <div class="charm-tagline">
-            <span data-fr>Nacre &amp; perle d'eau douce — pour les âmes douces.</span>
-            <span data-en>Mother-of-pearl &amp; freshwater pearl — for gentle souls.</span>
-          </div>
-          <div class="charm-price">24,99&nbsp;€</div>
-          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div>
-          <div class="charm-price-incl" data-en>Chewie tag included</div>
-        </div>
-        <a href="#waitlist" class="charm-cta">
-          <span data-fr>Commander</span><span data-en>Order</span>
-        </a>
-      </div>
-
-      <!-- Starlight -->
-      <div class="charm-card classic reveal reveal-delay-1">
-        <span class="charm-tier classic" data-fr>Classique</span>
-        <span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charm-starlight.png" alt="Starlight charm" class="charm-photo"/>
+      <div class="charm-card exclusive reveal">
+        <span class="charm-tier exclusive" data-fr>Exclusif</span>
+        <span class="charm-tier exclusive" data-en>Exclusive</span>
+        <img src="assets/charms/Starlight.png" alt="Starlight charm" class="charm-photo"/>
         <div class="charm-body">
           <div class="charm-name">Starlight</div>
           <div class="charm-tagline">
             <span data-fr>Trèfle nacré &amp; étoile sertie — un peu de chance autour du cou.</span>
             <span data-en>Pearl clover &amp; jewelled star — a touch of luck.</span>
           </div>
-          <div class="charm-price">24,99&nbsp;€</div>
-          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div>
-          <div class="charm-price-incl" data-en>Chewie tag included</div>
+          <div class="charm-price">29,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus · édition limitée</div>
+          <div class="charm-price-incl" data-en>Chewie tag included · limited edition</div>
         </div>
-        <a href="#waitlist" class="charm-cta">
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta">
           <span data-fr>Commander</span><span data-en>Order</span>
         </a>
       </div>
 
-      <!-- White Rabbit -->
-      <div class="charm-card exclusive reveal reveal-delay-2">
+      <div class="charm-card exclusive reveal reveal-delay-1">
         <span class="charm-tier exclusive" data-fr>Exclusif</span>
         <span class="charm-tier exclusive" data-en>Exclusive</span>
-        <img src="assets/charm-white-rabbit.png" alt="White Rabbit charm" class="charm-photo"/>
+        <img src="assets/charms/White_Rabbit.png" alt="White Rabbit charm" class="charm-photo"/>
         <div class="charm-body">
           <div class="charm-name">White Rabbit</div>
           <div class="charm-tagline">
@@ -1789,15 +1787,156 @@ footer {
           <div class="charm-price-incl" data-fr>Tag Chewie inclus · édition limitée</div>
           <div class="charm-price-incl" data-en>Chewie tag included · limited edition</div>
         </div>
-        <a href="#waitlist" class="charm-cta">
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta">
+          <span data-fr>Commander</span><span data-en>Order</span>
+        </a>
+      </div>
+
+      <div class="charm-card exclusive reveal reveal-delay-2">
+        <span class="charm-tier exclusive" data-fr>Exclusif</span>
+        <span class="charm-tier exclusive" data-en>Exclusive</span>
+        <img src="assets/charms/Seashell_Baby.png" alt="Seashell Baby charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Seashell Baby</div>
+          <div class="charm-tagline">
+            <span data-fr>Nacre &amp; perle d'eau douce — pour les âmes douces.</span>
+            <span data-en>Mother-of-pearl &amp; freshwater pearl — for gentle souls.</span>
+          </div>
+          <div class="charm-price">29,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus · édition limitée</div>
+          <div class="charm-price-incl" data-en>Chewie tag included · limited edition</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta">
+          <span data-fr>Commander</span><span data-en>Order</span>
+        </a>
+      </div>
+
+      <div class="charm-card exclusive reveal reveal-delay-3">
+        <span class="charm-tier exclusive" data-fr>Exclusif</span>
+        <span class="charm-tier exclusive" data-en>Exclusive</span>
+        <img src="assets/charms/Cocorico.png" alt="Cocorico charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Cocorico</div>
+          <div class="charm-tagline">
+            <span data-fr>Petit coq tricolore — fier comme un Parisien.</span>
+            <span data-en>Little tricolour rooster — proudly Parisian.</span>
+          </div>
+          <div class="charm-price">29,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus · édition limitée</div>
+          <div class="charm-price-incl" data-en>Chewie tag included · limited edition</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta">
           <span data-fr>Commander</span><span data-en>Order</span>
         </a>
       </div>
     </div>
 
+    <!-- ── Collection Classique (24,99 €) ── -->
+    <div class="collection-head reveal" style="margin-top:48px;">
+      <span class="charm-tier classic"><span data-fr>Collection Classique</span><span data-en>Classic Collection</span></span>
+      <span class="collection-head-price">24,99&nbsp;€ · <span data-fr>Tag inclus</span><span data-en>Tag included</span></span>
+    </div>
+    <div class="charms-grid">
+      <div class="charm-card classic reveal">
+        <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
+        <img src="assets/charms/Juicy_Bite.png" alt="Juicy Bite charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Juicy Bite</div>
+          <div class="charm-tagline"><span data-fr>Pastèque juteuse — un croqueur d'été.</span><span data-en>Juicy watermelon — a bite of summer.</span></div>
+          <div class="charm-price">24,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div><div class="charm-price-incl" data-en>Chewie tag included</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta"><span data-fr>Commander</span><span data-en>Order</span></a>
+      </div>
+
+      <div class="charm-card classic reveal reveal-delay-1">
+        <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
+        <img src="assets/charms/Vanilla_Kiss.png" alt="Vanilla Kiss charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Vanilla Kiss</div>
+          <div class="charm-tagline"><span data-fr>Douceur vanille — tendre et gourmand.</span><span data-en>Vanilla sweetness — tender and sweet.</span></div>
+          <div class="charm-price">24,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div><div class="charm-price-incl" data-en>Chewie tag included</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta"><span data-fr>Commander</span><span data-en>Order</span></a>
+      </div>
+
+      <div class="charm-card classic reveal reveal-delay-2">
+        <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
+        <img src="assets/charms/Matcha_Love.png" alt="Matcha Love charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Matcha Love</div>
+          <div class="charm-tagline"><span data-fr>Vert matcha — pour les esprits zen.</span><span data-en>Matcha green — for zen souls.</span></div>
+          <div class="charm-price">24,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div><div class="charm-price-incl" data-en>Chewie tag included</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta"><span data-fr>Commander</span><span data-en>Order</span></a>
+      </div>
+
+      <div class="charm-card classic reveal reveal-delay-3">
+        <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
+        <img src="assets/charms/Aqua_Pop.png" alt="Aqua Pop charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Aqua Pop</div>
+          <div class="charm-tagline"><span data-fr>Bleu lagon — frais comme une vague.</span><span data-en>Lagoon blue — fresh as a wave.</span></div>
+          <div class="charm-price">24,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div><div class="charm-price-incl" data-en>Chewie tag included</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta"><span data-fr>Commander</span><span data-en>Order</span></a>
+      </div>
+
+      <div class="charm-card classic reveal">
+        <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
+        <img src="assets/charms/Lavender_Pop.png" alt="Lavender Pop charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Lavender Pop</div>
+          <div class="charm-tagline"><span data-fr>Lavande tendre — douceur de Provence.</span><span data-en>Soft lavender — a touch of Provence.</span></div>
+          <div class="charm-price">24,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div><div class="charm-price-incl" data-en>Chewie tag included</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta"><span data-fr>Commander</span><span data-en>Order</span></a>
+      </div>
+
+      <div class="charm-card classic reveal reveal-delay-1">
+        <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
+        <img src="assets/charms/Hot_Biscuit.png" alt="Hot Biscuit charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Hot Biscuit</div>
+          <div class="charm-tagline"><span data-fr>Biscuit doré — réconfortant à souhait.</span><span data-en>Golden biscuit — pure comfort.</span></div>
+          <div class="charm-price">24,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div><div class="charm-price-incl" data-en>Chewie tag included</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta"><span data-fr>Commander</span><span data-en>Order</span></a>
+      </div>
+
+      <div class="charm-card classic reveal reveal-delay-2">
+        <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
+        <img src="assets/charms/Bee_Mine.png" alt="Bee Mine charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Bee Mine</div>
+          <div class="charm-tagline"><span data-fr>Petite abeille — butineuse d'amour.</span><span data-en>Little bee — gathering love.</span></div>
+          <div class="charm-price">24,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div><div class="charm-price-incl" data-en>Chewie tag included</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta"><span data-fr>Commander</span><span data-en>Order</span></a>
+      </div>
+
+      <div class="charm-card classic reveal reveal-delay-3">
+        <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
+        <img src="assets/charms/Lucky_Skies.png" alt="Lucky Skies charm" class="charm-photo"/>
+        <div class="charm-body">
+          <div class="charm-name">Lucky Skies</div>
+          <div class="charm-tagline"><span data-fr>Nuage porte-bonheur — la tête dans les étoiles.</span><span data-en>Lucky cloud — head in the stars.</span></div>
+          <div class="charm-price">24,99&nbsp;€</div>
+          <div class="charm-price-incl" data-fr>Tag Chewie inclus</div><div class="charm-price-incl" data-en>Chewie tag included</div>
+        </div>
+        <a href="#" onclick="openOrderModal();return false;" class="charm-cta"><span data-fr>Commander</span><span data-en>Order</span></a>
+      </div>
+    </div>
+
     <p style="text-align:center;margin-top:32px;font-size:13px;color:var(--ink-soft);">
-      <span data-fr>Charmes conçus en collaboration avec <strong style="color:var(--ink);">La Perlerie 22</strong>, Paris.</span>
-      <span data-en>Charms designed in collaboration with <strong style="color:var(--ink);">La Perlerie 22</strong>, Paris.</span>
+      <span data-fr>Breloques artisanales en édition limitée, dessinées à Paris. Remise multi-breloques : −10 % dès 2, −15 % dès 3.</span>
+      <span data-en>Handcrafted limited-edition charms, designed in Paris. Multi-charm discount: −10% from 2, −15% from 3.</span>
     </p>
   </div>
 </div>
@@ -1831,32 +1970,24 @@ footer {
   </div>
 </div>
 
-<!-- ═══ WAITLIST ═══════════════════════════════════════════ -->
-<div id="waitlist" style="background: var(--cream-warm); border-top: 1px solid var(--border); padding: 110px 48px; text-align: center;">
-  <div class="eyebrow" data-fr>Pré-inscription</div>
-  <div class="eyebrow" data-en>Waitlist</div>
+<!-- ═══ ORDER CTA ══════════════════════════════════════════ -->
+<div id="order" style="background: var(--cream-warm); border-top: 1px solid var(--border); padding: 110px 48px; text-align: center;">
+  <div class="eyebrow" data-fr>Commander</div>
+  <div class="eyebrow" data-en>Order</div>
   <h2 class="serif reveal">
-    <span data-fr>Soyez parmi<br>les <em>premiers</em></span>
-    <span data-en>Be among<br>the <em>first</em></span>
+    <span data-fr>Votre médaille,<br>en <em>quelques secondes</em></span>
+    <span data-en>Your gold tag,<br>in <em>seconds</em></span>
   </h2>
-  <p class="section-lead reveal" data-fr>Inscrivez-vous maintenant pour être notifié le 28 mai et bénéficier d'un accès prioritaire à l'app.</p>
-  <p class="section-lead reveal" data-en>Sign up now to be notified on May 28 and get priority access to the app.</p>
-  <form class="reveal" id="waitlistForm" onsubmit="handleWaitlist(event)" style="max-width:460px;margin:0 auto 16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-    <input type="email" id="waitlistEmail" required
-      placeholder="votre@email.com"
-      style="flex:1;min-width:220px;padding:16px 22px;border-radius:50px;border:1.5px solid var(--border-warm);background:#fff;font-family:var(--sans);font-size:15px;color:var(--ink);outline:none;transition:border-color 0.2s;"
-      onfocus="this.style.borderColor='var(--gold)'"
-      onblur="this.style.borderColor='var(--border-warm)'"
-    />
-    <button type="submit" class="btn-primary" style="border:none;cursor:pointer;">
-      <span data-fr>Je m'inscris</span>
-      <span data-en>Sign me up</span>
-    </button>
-  </form>
-  <div id="waitlistSuccess" style="display:none;color:var(--green);font-size:16px;font-weight:600;margin-top:16px;" data-fr>🐾 Parfait ! On vous notifie le 28 mai.</div>
-  <div id="waitlistSuccess-en" style="display:none;color:var(--green);font-size:16px;font-weight:600;margin-top:16px;" data-en>🐾 Perfect! We'll notify you on May 28.</div>
-  <p style="font-size:13px;color:var(--ink-ghost);margin-top:12px;" data-fr>Aucun spam. Juste une notification le jour J.</p>
-  <p style="font-size:13px;color:var(--ink-ghost);margin-top:12px;" data-en>No spam. Just one notification on launch day.</p>
+  <p class="section-lead reveal" data-fr>Téléchargez l'app Chewie (gratuite), choisissez votre médaille et vos breloques, payez et faites-vous livrer. Vous activez le tag sur le profil de votre animal après réception.</p>
+  <p class="section-lead reveal" data-en>Download the free Chewie app, pick your tag and charms, pay and get it delivered. You activate the tag on your pet's profile after delivery.</p>
+  <div class="reveal" style="margin-top:28px;">
+    <a href="#" onclick="openOrderModal();return false;" class="btn-primary" style="justify-content:center;display:inline-flex;">
+      <span data-fr>Commander ma médaille</span>
+      <span data-en>Order my gold tag</span>
+    </a>
+  </div>
+  <p style="font-size:13px;color:var(--ink-ghost);margin-top:14px;" data-fr>Livraison 4,99 € en France · Remise dès 2 breloques</p>
+  <p style="font-size:13px;color:var(--ink-ghost);margin-top:14px;" data-en>€4.99 delivery in France · Discount from 2 charms</p>
 </div>
 
 <!-- ═══ INSTAGRAM ══════════════════════════════════════════ -->
@@ -1923,12 +2054,12 @@ footer {
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">
-        <span data-fr>Que sont les charms de La Perlerie 22 ?</span>
-        <span data-en>What are the La Perlerie 22 charms?</span>
+        <span data-fr>Que sont les charms Chewie ?</span>
+        <span data-en>What are the Chewie charms?</span>
       </div>
       <div class="faq-a">
-        <span data-fr>Nous avons sélectionné des breloques artisanales chez La Perlerie 22, une boutique parisienne iconique. À 7 € pièce, ils s'attachent à côté de votre tag doré pour personnaliser le collier de votre animal.</span>
-        <span data-en>We've selected handcrafted charms from La Perlerie 22, an iconic Parisian boutique. At €7 each, they attach alongside your gold tag to personalise your pet's collar.</span>
+        <span data-fr>Des breloques artisanales en édition limitée, à choisir selon le caractère de votre animal. Chaque breloque inclut une médaille Chewie (24,99 € ou 29,99 € selon la collection) et s'attache au collier de votre animal.</span>
+        <span data-en>Handcrafted limited-edition charms, chosen to match your pet's character. Each charm includes a Chewie tag (€24.99 or €29.99 depending on the collection) and clips onto your pet's collar.</span>
       </div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
@@ -1946,31 +2077,29 @@ footer {
 
 <!-- ═══ APP STORE ══════════════════════════════════════════ -->
 <div class="store-section">
-  <p class="store-lbl" data-fr>Bientôt disponible sur</p>
-  <p class="store-lbl" data-en>Coming soon on</p>
+  <p class="store-lbl" data-fr>Télécharger l'app gratuite</p>
+  <p class="store-lbl" data-en>Get the free app</p>
   <div class="store-badges">
-    <div class="store-badge">
+    <a class="store-badge" href="https://apps.apple.com/app/chewie/id0000000000" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
       <div class="store-badge-icon">
         <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       </div>
       <div>
-        <div class="store-badge-sub">App Store</div>
-        <div class="store-badge-name">iOS</div>
-        <div class="soon-pill" data-fr>Bientôt</div>
-        <div class="soon-pill" data-en>Soon</div>
+        <div class="store-badge-sub" data-fr>Télécharger sur</div>
+        <div class="store-badge-sub" data-en>Download on the</div>
+        <div class="store-badge-name">App Store</div>
       </div>
-    </div>
-    <div class="store-badge">
+    </a>
+    <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.chewieapp.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
       <div class="store-badge-icon">
         <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.44c1.45.07 2.44.78 3.28.82 1.24-.24 2.43-.96 3.74-.82 1.58.18 2.77.82 3.54 2.07-3.27 1.96-2.73 5.97.48 7.14-.35.97-.73 1.93-1.04 2.63M12.02 7.37C11.83 4.95 13.82 2.96 16 2.8c.29 2.58-2.34 4.59-3.98 4.57z"/></svg>
       </div>
       <div>
-        <div class="store-badge-sub">Google Play</div>
-        <div class="store-badge-name">Android</div>
-        <div class="soon-pill" data-fr>Bientôt</div>
-        <div class="soon-pill" data-en>Soon</div>
+        <div class="store-badge-sub" data-fr>Disponible sur</div>
+        <div class="store-badge-sub" data-en>Get it on</div>
+        <div class="store-badge-name">Google Play</div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
 
@@ -1981,8 +2110,8 @@ footer {
       <img src="assets/logo-new.png" alt="Chewie logo" alt="Chewie"/>
       <span class="footer-brand-name">Chewie</span>
     </a>
-    <p data-fr>L'application parisienne pour retrouver les animaux perdus. Lancement le 28 mai 2026.</p>
-    <p data-en>The Parisian app for finding lost pets. Launching May 28, 2026.</p>
+    <p data-fr>L'application parisienne pour retrouver les animaux perdus. Disponible sur iOS &amp; Android.</p>
+    <p data-en>The Parisian app for finding lost pets. Available on iOS &amp; Android.</p>
   </div>
   <div class="footer-col">
     <h4 data-fr>L'app</h4>
@@ -1992,8 +2121,8 @@ footer {
     <a href="#shop" data-fr>La boutique</a>
     <a href="#shop" data-en>Shop</a>
     <a href="#faq">FAQ</a>
-    <a href="#waitlist" data-fr>Pré-inscription</a>
-    <a href="#waitlist" data-en>Waitlist</a>
+    <a href="#order" data-fr>Commander</a>
+    <a href="#order" data-en>Order</a>
   </div>
   <div class="footer-col">
     <h4 data-fr>Légal</h4>
@@ -2082,27 +2211,6 @@ function setDemoStep(idx) {
   document.querySelectorAll('.demo-screen').forEach((s, i) => s.classList.toggle('active', i === idx));
 }
 
-// ── COUNTDOWN ────────────────────────────────────────────
-const launchDate = new Date('2026-05-28T09:00:00');
-function updateCountdown() {
-  const now = new Date();
-  const diff = launchDate - now;
-  if (diff <= 0) {
-    document.getElementById('countdown').innerHTML = '<div style="font-family:var(--serif);font-size:48px;font-style:italic;color:var(--gold);" data-fr>Chewie est live ! 🐾</div><div data-en style="display:none;">Chewie is live! 🐾</div>';
-    return;
-  }
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000) / 1000);
-  document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
-  document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-  document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
-  document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
 // ── FAQ ──────────────────────────────────────────────────
 function toggleFaq(el) {
   const isOpen = el.classList.contains('open');
@@ -2110,13 +2218,14 @@ function toggleFaq(el) {
   if (!isOpen) el.classList.add('open');
 }
 
-// ── WAITLIST ─────────────────────────────────────────────
-function handleWaitlist(e) {
-  e.preventDefault();
-  const email = document.getElementById('waitlistEmail').value;
-  document.getElementById('waitlistForm').style.display = 'none';
-  document.getElementById('waitlistSuccess').style.display = lang === 'fr' ? 'block' : 'none';
-  document.getElementById('waitlistSuccess-en').style.display = lang === 'en' ? 'block' : 'none';
+// ── ORDER MODAL (prompt to download the app) ─────────────
+function openOrderModal() {
+  const m = document.getElementById('orderModal');
+  if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+function closeOrderModal() {
+  const m = document.getElementById('orderModal');
+  if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
 }
 
 // ── REVEAL ON SCROLL ─────────────────────────────────────
@@ -2125,6 +2234,53 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
 }, { threshold: 0.12 });
 revealEls.forEach(el => observer.observe(el));
+
+// close order modal on Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOrderModal(); });
 </script>
+
+<!-- ═══ ORDER MODAL (prompt to download the app) ═══════════ -->
+<style>
+.order-modal { position: fixed; inset: 0; z-index: 2000; display: none; align-items: center; justify-content: center; padding: 24px;
+  background: oklch(15% 0.02 55 / 0.55); backdrop-filter: blur(6px); }
+.order-modal.open { display: flex; animation: omFade .25s ease; }
+@keyframes omFade { from { opacity: 0; } to { opacity: 1; } }
+.order-modal-card { position: relative; background: var(--cream); border-radius: 24px; max-width: 440px; width: 100%; padding: 44px 32px 36px; text-align: center;
+  box-shadow: 0 30px 80px oklch(15% 0.05 55 / 0.35); animation: omRise .35s cubic-bezier(.2,.8,.2,1); }
+@keyframes omRise { from { transform: translateY(20px) scale(.97); opacity: 0; } to { transform: none; opacity: 1; } }
+.order-modal-close { position: absolute; top: 16px; right: 20px; font-size: 30px; line-height: 1; color: var(--ink-soft); background: none; border: none; cursor: pointer; }
+.order-store-badges { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+.order-store-btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 20px; border-radius: 16px;
+  background: var(--ink); color: var(--cream); text-decoration: none; font-family: var(--sans); font-weight: 600; transition: transform .15s ease, background .2s ease; }
+.order-store-btn:hover { transform: translateY(-2px); background: #000; }
+.order-store-btn svg { width: 22px; height: 22px; fill: currentColor; }
+</style>
+<div class="order-modal" id="orderModal" onclick="if(event.target===this)closeOrderModal()">
+  <div class="order-modal-card">
+    <button class="order-modal-close" onclick="closeOrderModal()" aria-label="Close">&times;</button>
+    <img src="logo1.png" alt="Chewie" style="width:56px;height:56px;border-radius:14px;margin:0 auto 16px;"/>
+    <h3 style="font-family:var(--serif);font-size:28px;font-style:italic;color:var(--ink);margin-bottom:8px;">
+      <span data-fr>Commandez dans l'app</span><span data-en>Order in the app</span>
+    </h3>
+    <p style="color:var(--ink-soft);font-size:15px;line-height:1.6;">
+      <span data-fr>Le tag et les breloques se commandent depuis l'application Chewie — gratuite. Téléchargez-la pour finaliser votre commande.</span>
+      <span data-en>Tags and charms are ordered from the free Chewie app. Download it to complete your order.</span>
+    </p>
+    <div class="order-store-badges">
+      <a class="order-store-btn" href="https://apps.apple.com/app/chewie/id0000000000" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span>App Store</span>
+      </a>
+      <a class="order-store-btn" href="https://play.google.com/store/apps/details?id=com.chewieapp.app" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M3.6 2.3 13 11.7l-2.6 2.6L3.6 7.5C3.2 7.2 3 6.7 3 6.2V3.5c0-.6.3-1 .6-1.2zM14.4 13.1 17 15.7l-3.7 2.1c-.5.3-1.1.1-1.4-.4l-.1-.2 2.6-4.1zM17 8.3l3.5 2c.6.4.6 1.3 0 1.7l-3.5 2-2.8-2.9L17 8.3zM4.3 21.5 13 12.8l2.6 2.6-9.6 5.5c-.6.4-1.4.2-1.7-.4-.1-.2-.1-.4 0-.6z"/></svg>
+        <span>Google Play</span>
+      </a>
+    </div>
+    <p style="font-size:12px;color:var(--ink-ghost);margin-top:16px;">
+      <span data-fr>Paiement sécurisé · Livraison 4,99 € en France</span>
+      <span data-en>Secure payment · €4.99 delivery in France</span>
+    </p>
+  </div>
+</div>
 </body>
 </html>
