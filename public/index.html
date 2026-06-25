@@ -16,12 +16,13 @@
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Chewie — Retrouvez votre animal perdu à Paris"/>
 <meta property="og:description" content="L'app parisienne pour retrouver les animaux perdus. Smart Tags QR, alertes de quartier, carte communautaire."/>
-<meta property="og:image" content="assets/icon-512.png"/>
+<meta property="og:url" content="https://chewieapp.fr/"/>
+<meta property="og:image" content="https://chewieapp.fr/assets/icon-512.png"/>
 <meta property="og:locale" content="fr_FR"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Chewie — Retrouvez votre animal perdu à Paris"/>
 <meta name="twitter:description" content="L'app parisienne pour retrouver les animaux perdus."/>
-<meta name="twitter:image" content="assets/icon-512.png"/>
+<meta name="twitter:image" content="https://chewieapp.fr/assets/icon-512.png"/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -519,6 +520,23 @@ h2.serif em { font-style: italic; color: var(--gold); }
 .step-icon-wrap svg { width: 22px; height: 22px; stroke: var(--gold-deep); fill: none; stroke-width: 2; }
 .step-card h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 10px; line-height: 1.2; }
 .step-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
+/* ── Two ways (free app vs gold tag) ── */
+.path-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; margin-top: 56px; }
+.path-card { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg); padding: 38px 34px 30px; display: flex; flex-direction: column; box-shadow: 0 2px 16px var(--shadow); transition: transform 0.28s, box-shadow 0.28s; }
+.path-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px var(--shadow-lg); }
+.path-card.featured { border-color: var(--gold); box-shadow: 0 10px 34px oklch(72% 0.16 65 / 0.16); }
+.path-tag { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; padding: 6px 14px; border-radius: 20px; margin-bottom: 18px; background: var(--cream-warm); color: var(--ink-soft); }
+.path-tag.gold { background: var(--gold); color: #fff; }
+.path-icon { width: 56px; height: 56px; border-radius: 16px; background: var(--gold-light); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.path-icon svg { width: 28px; height: 28px; stroke: var(--gold-deep); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.path-card h3 { font-family: var(--serif); font-size: 26px; margin-bottom: 8px; line-height: 1.2; }
+.path-card > p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 22px; }
+.path-list { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 13px; }
+.path-list li { position: relative; padding-left: 30px; font-size: 14.5px; line-height: 1.5; }
+.path-list li::before { content: '✓'; position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--green-light); color: oklch(45% 0.12 155); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.path-card .btn-primary, .path-card .btn-secondary { margin-top: auto; }
+.path-foot { font-size: 12.5px; color: var(--ink-soft); text-align: center; margin-top: 14px; }
+@media (max-width: 860px) { .path-grid { grid-template-columns: 1fr; } }
 
 /* ═══════════════════════════════════════
    REAL SCREENSHOTS GALLERY
@@ -839,7 +857,10 @@ h2.serif em { font-style: italic; color: var(--gold); }
 }
 
 .charms-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+}
+@media (max-width: 980px) {
+  .charms-grid { grid-template-columns: repeat(2, 1fr); }
 }
 .charm-card {
   background: #fff; border: 1px solid var(--border);
@@ -1052,7 +1073,7 @@ footer {
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-ctas { justify-content: center; }
   .hero-social-proof { position: relative; bottom: auto; left: auto; transform: none; margin-top: 24px; display: inline-flex; }
-  .hero-phone-wrap { order: -1; }
+  .hero-phone-wrap { order: 2; }
   .float-badge.badge-top { right: -10px; }
   .float-badge.badge-bot { left: -10px; }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1060,7 +1081,6 @@ footer {
   .products-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .shop-tag-hero { grid-template-columns: 1fr; padding: 40px 32px; gap: 24px; }
-  .charms-grid { grid-template-columns: 1fr; }
   .screens-grid { grid-template-columns: 1fr; gap: 56px; }
   .screen-tile.middle { transform: none; }
   .screen-tile img { max-width: 320px; }
@@ -1077,6 +1097,7 @@ footer {
   .footer-bottom { padding: 14px 20px; flex-direction: column; gap: 6px; text-align: center; }
   .steps-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr; }
+  .charms-grid { grid-template-columns: 1fr; }
   .screens-section { padding: 70px 20px; }
   .insta-card { padding: 40px 24px; }
   .iphone { width: 250px; height: 500px; }
@@ -1397,6 +1418,66 @@ footer {
   </div>
 </div>
 
+<!-- ═══ TWO WAYS (free app + gold tag) ═════════════════════ -->
+<div class="section reveal" style="padding-bottom:50px;">
+  <div class="eyebrow" data-fr>L'app + la médaille</div>
+  <div class="eyebrow" data-en>The app + the tag</div>
+  <h2 class="serif">
+    <span data-fr>Deux façons de<br><em>protéger votre animal</em></span>
+    <span data-en>Two ways to<br><em>protect your pet</em></span>
+  </h2>
+  <p class="section-lead">
+    <span data-fr>L'app communautaire est gratuite. La médaille en or est la protection physique ultime. Ensemble, elles ramènent votre animal à la maison.</span>
+    <span data-en>The community app is free. The gold tag is the ultimate physical protection. Together, they bring your pet home.</span>
+  </p>
+
+  <div class="path-grid">
+    <!-- Path A — the free app -->
+    <div class="path-card reveal">
+      <span class="path-tag" data-fr>Gratuit</span><span class="path-tag" data-en>Free</span>
+      <div class="path-icon">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+      </div>
+      <h3 data-fr>L'app communautaire</h3>
+      <h3 data-en>The community app</h3>
+      <p data-fr>Des milliers de voisins, prêts à chercher avec vous.</p>
+      <p data-en>Thousands of neighbours, ready to search with you.</p>
+      <ul class="path-list">
+        <li data-fr>Carte des animaux perdus en temps réel</li><li data-en>Real-time lost-pet map</li>
+        <li data-fr>Alerte SOS à tout le quartier en 3 taps</li><li data-en>3-tap SOS to the whole neighbourhood</li>
+        <li data-fr>Notifications de proximité (rayon 3 km)</li><li data-en>Proximity alerts (3 km radius)</li>
+      </ul>
+      <a href="#" onclick="openOrderModal();return false;" class="btn-secondary" style="width:100%;justify-content:center;">
+        <span data-fr>Télécharger l'app</span><span data-en>Get the app</span>
+      </a>
+      <div class="path-foot" data-fr>iOS &amp; Android · sans abonnement</div>
+      <div class="path-foot" data-en>iOS &amp; Android · no subscription</div>
+    </div>
+
+    <!-- Path B — the gold tag -->
+    <div class="path-card featured reveal reveal-delay-1">
+      <span class="path-tag gold" data-fr>Dès 19,99 €</span><span class="path-tag gold" data-en>From €19.99</span>
+      <div class="path-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 data-fr>La médaille en or</h3>
+      <h3 data-en>The gold tag</h3>
+      <p data-fr>La protection qui marche sans téléphone, sans batterie, sans l'app.</p>
+      <p data-en>Protection that works with no phone, no battery, no app.</p>
+      <ul class="path-list">
+        <li data-fr>Scannable par n'importe qui — même sans Chewie</li><li data-en>Scannable by anyone — even without Chewie</li>
+        <li data-fr>Indestructible &amp; sans batterie, à vie</li><li data-en>Indestructible &amp; battery-free, for life</li>
+        <li data-fr>Tag + charme inclus, livré à Paris</li><li data-en>Tag + charm included, delivered in Paris</li>
+      </ul>
+      <a href="#shop" class="btn-primary" style="width:100%;justify-content:center;">
+        <span data-fr>Commander une médaille</span><span data-en>Get a Gold Tag</span>
+      </a>
+      <div class="path-foot" data-fr>Paiement unique · aucun abonnement</div>
+      <div class="path-foot" data-en>One-time payment · no subscription</div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ HOW IT WORKS ══════════════════════════════════════ -->
 <div id="how" class="section reveal">
   <div class="eyebrow" data-fr>Comment ça marche</div>
@@ -1463,12 +1544,12 @@ footer {
       <span data-en>No mockups.<br><em>Real screens.</em></span>
     </h2>
     <p class="section-lead reveal">
-      <span data-fr>Chewie tourne déjà. Voici à quoi ressemble l'app que vous aurez en main le 28 mai.</span>
-      <span data-en>Chewie already runs. Here's exactly what you'll have in your hand on May 28.</span>
+      <span data-fr>Chewie tourne déjà. Voici à quoi ressemble l'app que vous aurez bientôt en main.</span>
+      <span data-en>Chewie already runs. Here's exactly what you'll soon have in your hand.</span>
     </p>
     <div class="screens-grid">
       <div class="screen-tile reveal">
-        <img src="assets/screen-intro.png" alt="Chewie app intro screen"/>
+        <img src="assets/screen-intro.jpg" alt="Chewie app intro screen" loading="lazy"/>
         <div class="screen-caption">
           <div class="screen-caption-eyebrow" data-fr>Bienvenue</div>
           <div class="screen-caption-eyebrow" data-en>Welcome</div>
@@ -1479,7 +1560,7 @@ footer {
         </div>
       </div>
       <div class="screen-tile middle reveal reveal-delay-1">
-        <img src="assets/screen-map.png" alt="Chewie Paris map with alerts"/>
+        <img src="assets/screen-map.jpg" alt="Chewie Paris map with alerts" loading="lazy"/>
         <div class="screen-caption">
           <div class="screen-caption-eyebrow" data-fr>Carte communautaire</div>
           <div class="screen-caption-eyebrow" data-en>Community map</div>
@@ -1490,14 +1571,14 @@ footer {
         </div>
       </div>
       <div class="screen-tile reveal reveal-delay-2">
-        <img src="assets/screen-lost.png" alt="Chewie lost pet alert screen"/>
+        <img src="assets/screen-lost.jpg" alt="Chewie SOS alert screen" loading="lazy"/>
         <div class="screen-caption">
-          <div class="screen-caption-eyebrow" data-fr>Profil d'alerte</div>
-          <div class="screen-caption-eyebrow" data-en>Lost-pet alert</div>
-          <h4 data-fr>Tout ce qu'il faut savoir</h4>
-          <h4 data-en>Everything that matters</h4>
-          <p data-fr>Race, signes distinctifs, dernière localisation, voisins mobilisés. Partageable en un geste.</p>
-          <p data-en>Breed, distinctive marks, last location, helpers nearby. Shareable in one tap.</p>
+          <div class="screen-caption-eyebrow" data-fr>Alerte SOS</div>
+          <div class="screen-caption-eyebrow" data-en>SOS alert</div>
+          <h4 data-fr>Tout le quartier, en 30 secondes</h4>
+          <h4 data-en>The whole block, in 30 seconds</h4>
+          <p data-fr>Accessoires, dernière position, contact privé — et chaque voisin Chewie à 3 km est alerté instantanément.</p>
+          <p data-en>Accessories, last location, private contact — every Chewie neighbour within 3 km is alerted instantly.</p>
         </div>
       </div>
     </div>
@@ -1757,7 +1838,7 @@ footer {
       <div class="charm-card exclusive reveal">
         <span class="charm-tier exclusive" data-fr>Exclusif</span>
         <span class="charm-tier exclusive" data-en>Exclusive</span>
-        <img src="assets/charms/Starlight.png" alt="Starlight charm" class="charm-photo"/>
+        <img src="assets/charms/Starlight.jpg" alt="Starlight charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Starlight</div>
           <div class="charm-tagline">
@@ -1776,7 +1857,7 @@ footer {
       <div class="charm-card exclusive reveal reveal-delay-1">
         <span class="charm-tier exclusive" data-fr>Exclusif</span>
         <span class="charm-tier exclusive" data-en>Exclusive</span>
-        <img src="assets/charms/White_Rabbit.png" alt="White Rabbit charm" class="charm-photo"/>
+        <img src="assets/charms/White_Rabbit.jpg" alt="White Rabbit charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">White Rabbit</div>
           <div class="charm-tagline">
@@ -1795,7 +1876,7 @@ footer {
       <div class="charm-card exclusive reveal reveal-delay-2">
         <span class="charm-tier exclusive" data-fr>Exclusif</span>
         <span class="charm-tier exclusive" data-en>Exclusive</span>
-        <img src="assets/charms/Seashell_Baby.png" alt="Seashell Baby charm" class="charm-photo"/>
+        <img src="assets/charms/Seashell_Baby.jpg" alt="Seashell Baby charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Seashell Baby</div>
           <div class="charm-tagline">
@@ -1814,7 +1895,7 @@ footer {
       <div class="charm-card exclusive reveal reveal-delay-3">
         <span class="charm-tier exclusive" data-fr>Exclusif</span>
         <span class="charm-tier exclusive" data-en>Exclusive</span>
-        <img src="assets/charms/Cocorico.png" alt="Cocorico charm" class="charm-photo"/>
+        <img src="assets/charms/Cocorico.jpg" alt="Cocorico charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Cocorico</div>
           <div class="charm-tagline">
@@ -1839,7 +1920,7 @@ footer {
     <div class="charms-grid">
       <div class="charm-card classic reveal">
         <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charms/Juicy_Bite.png" alt="Juicy Bite charm" class="charm-photo"/>
+        <img src="assets/charms/Juicy_Bite.jpg" alt="Juicy Bite charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Juicy Bite</div>
           <div class="charm-tagline"><span data-fr>Pastèque juteuse — un croqueur d'été.</span><span data-en>Juicy watermelon — a bite of summer.</span></div>
@@ -1851,7 +1932,7 @@ footer {
 
       <div class="charm-card classic reveal reveal-delay-1">
         <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charms/Vanilla_Kiss.png" alt="Vanilla Kiss charm" class="charm-photo"/>
+        <img src="assets/charms/Vanilla_Kiss.jpg" alt="Vanilla Kiss charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Vanilla Kiss</div>
           <div class="charm-tagline"><span data-fr>Douceur vanille — tendre et gourmand.</span><span data-en>Vanilla sweetness — tender and sweet.</span></div>
@@ -1863,7 +1944,7 @@ footer {
 
       <div class="charm-card classic reveal reveal-delay-2">
         <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charms/Matcha_Love.png" alt="Matcha Love charm" class="charm-photo"/>
+        <img src="assets/charms/Matcha_Love.jpg" alt="Matcha Love charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Matcha Love</div>
           <div class="charm-tagline"><span data-fr>Vert matcha — pour les esprits zen.</span><span data-en>Matcha green — for zen souls.</span></div>
@@ -1875,7 +1956,7 @@ footer {
 
       <div class="charm-card classic reveal reveal-delay-3">
         <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charms/Aqua_Pop.png" alt="Aqua Pop charm" class="charm-photo"/>
+        <img src="assets/charms/Aqua_Pop.jpg" alt="Aqua Pop charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Aqua Pop</div>
           <div class="charm-tagline"><span data-fr>Bleu lagon — frais comme une vague.</span><span data-en>Lagoon blue — fresh as a wave.</span></div>
@@ -1887,7 +1968,7 @@ footer {
 
       <div class="charm-card classic reveal">
         <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charms/Lavender_Pop.png" alt="Lavender Pop charm" class="charm-photo"/>
+        <img src="assets/charms/Lavender_Pop.jpg" alt="Lavender Pop charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Lavender Pop</div>
           <div class="charm-tagline"><span data-fr>Lavande tendre — douceur de Provence.</span><span data-en>Soft lavender — a touch of Provence.</span></div>
@@ -1899,7 +1980,7 @@ footer {
 
       <div class="charm-card classic reveal reveal-delay-1">
         <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charms/Hot_Biscuit.png" alt="Hot Biscuit charm" class="charm-photo"/>
+        <img src="assets/charms/Hot_Biscuit.jpg" alt="Hot Biscuit charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Hot Biscuit</div>
           <div class="charm-tagline"><span data-fr>Biscuit doré — réconfortant à souhait.</span><span data-en>Golden biscuit — pure comfort.</span></div>
@@ -1911,7 +1992,7 @@ footer {
 
       <div class="charm-card classic reveal reveal-delay-2">
         <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charms/Bee_Mine.png" alt="Bee Mine charm" class="charm-photo"/>
+        <img src="assets/charms/Bee_Mine.jpg" alt="Bee Mine charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Bee Mine</div>
           <div class="charm-tagline"><span data-fr>Petite abeille — butineuse d'amour.</span><span data-en>Little bee — gathering love.</span></div>
@@ -1923,7 +2004,7 @@ footer {
 
       <div class="charm-card classic reveal reveal-delay-3">
         <span class="charm-tier classic" data-fr>Classique</span><span class="charm-tier classic" data-en>Classic</span>
-        <img src="assets/charms/Lucky_Skies.png" alt="Lucky Skies charm" class="charm-photo"/>
+        <img src="assets/charms/Lucky_Skies.jpg" alt="Lucky Skies charm" class="charm-photo" loading="lazy"/>
         <div class="charm-body">
           <div class="charm-name">Lucky Skies</div>
           <div class="charm-tagline"><span data-fr>Nuage porte-bonheur — la tête dans les étoiles.</span><span data-en>Lucky cloud — head in the stars.</span></div>
@@ -2038,8 +2119,8 @@ footer {
         <span data-en>Can I order the tag now and activate it later?</span>
       </div>
       <div class="faq-a">
-        <span data-fr>Absolument. Vous pouvez commander votre médaille dès maintenant. Vous la recevrez à domicile et pourrez l'activer le 28 mai à l'ouverture de l'app.</span>
-        <span data-en>Absolutely. You can order your gold tag right now. You'll receive your tag at home and can activate it on May 28 when the app opens.</span>
+        <span data-fr>Absolument. Vous pouvez commander votre médaille dès maintenant. Vous la recevrez à domicile et pourrez l'activer dès l'ouverture de l'app.</span>
+        <span data-en>Absolutely. You can order your gold tag right now. You'll receive your tag at home and can activate it as soon as the app opens.</span>
       </div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
