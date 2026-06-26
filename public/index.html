@@ -1122,7 +1122,7 @@ footer {
   </div>
   <div class="nav-right">
     <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
-    <a href="#" onclick="openOrderModal();return false;" class="nav-cta">
+    <a href="#shop" class="nav-cta">
       <span data-fr>Commander</span>
       <span data-en>Order</span>
     </a>
@@ -2059,10 +2059,10 @@ footer {
     <span data-fr>Votre médaille,<br>en <em>quelques secondes</em></span>
     <span data-en>Your gold tag,<br>in <em>seconds</em></span>
   </h2>
-  <p class="section-lead reveal" data-fr>Téléchargez l'app Chewie (gratuite), choisissez votre médaille et vos breloques, payez et faites-vous livrer. Vous activez le tag sur le profil de votre animal après réception.</p>
-  <p class="section-lead reveal" data-en>Download the free Chewie app, pick your tag and charms, pay and get it delivered. You activate the tag on your pet's profile after delivery.</p>
+  <p class="section-lead reveal" data-fr>Choisissez votre médaille et votre breloque, payez en quelques secondes sur le site et faites-vous livrer. Activez ensuite le tag dans l'app Chewie — gratuite — à réception.</p>
+  <p class="section-lead reveal" data-en>Pick your tag and charm, pay in seconds right here, and get it delivered. Then activate it in the free Chewie app once it arrives.</p>
   <div class="reveal" style="margin-top:28px;">
-    <a href="#" onclick="openOrderModal();return false;" class="btn-primary" style="justify-content:center;display:inline-flex;">
+    <a href="#shop" class="btn-primary" style="justify-content:center;display:inline-flex;">
       <span data-fr>Commander ma médaille</span>
       <span data-en>Order my gold tag</span>
     </a>
@@ -2341,11 +2341,11 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOrderMo
     <button class="order-modal-close" onclick="closeOrderModal()" aria-label="Close">&times;</button>
     <img src="assets/logo-new.png" alt="Chewie" style="width:56px;height:56px;border-radius:14px;margin:0 auto 16px;"/>
     <h3 style="font-family:var(--serif);font-size:28px;font-style:italic;color:var(--ink);margin-bottom:8px;">
-      <span data-fr>Commandez dans l'app</span><span data-en>Order in the app</span>
+      <span data-fr>Téléchargez Chewie</span><span data-en>Download Chewie</span>
     </h3>
     <p style="color:var(--ink-soft);font-size:15px;line-height:1.6;">
-      <span data-fr>Le tag et les breloques se commandent depuis l'application Chewie — gratuite. Téléchargez-la pour finaliser votre commande.</span>
-      <span data-en>Tags and charms are ordered from the free Chewie app. Download it to complete your order.</span>
+      <span data-fr>L'app gratuite pour activer votre médaille, déclencher une alerte SOS et rejoindre la communauté Chewie.</span>
+      <span data-en>The free app to activate your tag, trigger SOS alerts and join the Chewie community.</span>
     </p>
     <div class="order-store-badges">
       <a class="order-store-btn" href="https://apps.apple.com/app/chewie/id0000000000" target="_blank" rel="noopener">
@@ -2363,5 +2363,37 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOrderMo
     </p>
   </div>
 </div>
+<!-- ═══ WEB CHECKOUT (guest, hosted Stripe Checkout) ═══════ -->
+<script>
+(function () {
+  var CHECKOUT_FN = 'https://nvruieeugfmmzjbjjwvj.supabase.co/functions/v1/create-web-checkout';
+  function slugify(s) { return (s || '').trim().toLowerCase().replace(/\s+/g, '_'); }
+
+  window.webCheckout = async function (charmId, itemType) {
+    var items = [{ item_type: itemType || 'charm_tag', charm_id: charmId, qty: 1 }];
+    try {
+      var res = await fetch(CHECKOUT_FN, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: items })
+      });
+      var data = await res.json();
+      if (data && data.url) { window.location.href = data.url; }
+      else { alert((data && data.error) || 'Une erreur est survenue. Réessayez.'); }
+    } catch (e) { alert('Erreur réseau. Réessayez.'); }
+  };
+
+  // Wire each charm card's "Commander" button to web checkout (charm name → slug = charm_id).
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.charm-card').forEach(function (card) {
+      var nameEl = card.querySelector('.charm-name');
+      var btn = card.querySelector('.charm-cta');
+      if (!nameEl || !btn) return;
+      var slug = slugify(nameEl.textContent);
+      btn.onclick = function (e) { e.preventDefault(); window.webCheckout(slug, 'charm_tag'); return false; };
+    });
+  });
+})();
+</script>
 </body>
 </html>
